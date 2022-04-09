@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" type="text/css" href="style/index.css">
+    <link href='https://fonts.googleapis.com/css?family=Roboto Mono' rel='stylesheet'>
+
+    <script src="script/jquery_backup/jquery-1.11.0.min.js"></script>
+    <script src="script/jquery_backup/jquery_localize.js"></script>
+
+  </head>
+
+  <header id="header">
+    <div>
+      <a href="#game_of_life" data-localize="header.game"></a>
+      <a href="#about_me" data-localize="header.about"></a>
+      <a href="#education" data-localize="header.education"></a>
+      <a href="#work_experience" data-localize="header.work"></a>
+      <a href="#projects" data-localize="header.projects"></a>
+    </div>
+  </header>
+
+  <body id="body_of_all">
+    <div class="placeholder" id="game_of_life"></div>
+    <section id="game_controls">
+      <div id="game"></div>
+      <button id="start_game" onclick="start_game()" data-localize="game.start"></button>
+      <button id="pause_game" onclick="pause_game()" data-localize="game.pause"></button>
+      <button id="stop_game" onclick="stop_game()" data-localize="game.stop"></button>
+      <button id="cells" onclick="change_to_erase" data-localize="game.draw"></button>
+      <button id="erase_cells" onclick="change_to_erase" data-localize="game.delete"></button>
+      <button onclick="take_screen_shot()">Screen Shot</button>
+      <input id="intreval_time" type="range" min="100" max="1250" value="250"></input>
+      <p id="show_intreval_time">0.25 sec</p>
+    </section>
+
+    <div class="placeholder" id="about_me"></div>
+    <section id="personal">
+      <div id="profile"><img src="documents/profile.jpg" alt="Profile"></div>
+      <h2>Leander Finckenstein</h2>
+      <p id="occupation" data-localize="about.occupation"></p>
+      <div id="personal_info">
+        <div>
+          <div id="whatsapp">
+            <a href="https://api.whatsapp.com/send?phone=4915253011101" target="_blank">
+              <img class="p_img" src="documents/whatsapp.png" alt="whatsapp">
+            </a>
+          </div>
+          <a href="https://api.whatsapp.com/send?phone=4915253011101" target="_blank">+49-1525-3011101</a>
+        </div>
+        <div>
+          <div id="mail">
+            <a href="mailto:leander.finck@gmail.com"><img class="p_img" src="documents/mail.png" alt="mail"></a>
+          </div>
+          <a href="mailto:leander.finck@gmail.com">leander.finck@gmail.com</a>
+        </div>
+        <div><div id="github"><a href="https://github.com/leanderFinck1999" target="_blank"><img class="p_img" src="documents/github.png" alt="github"></a></div></div>
+        <div><div id="linkedin"><a href="https://www.linkedin.com/in/leander-finckenstein-0920971b5/" target="_blank"><img class="p_img" src="documents/linkedin.png" alt="github"></a></div></div>
+      </div>
+      <p id="about_me" data-localize="about.statement"></p>
+    </section>
+
+    <div class="placeholder" id="education"></div>
+    <section id="my_education">
+      <h2 data-localize="education.title"></h2>
+      <div class="school">
+        <p>2018-2021</p>
+        <div>
+          <h3><a href="https://vu.nl/en/education/bachelor/computer-science" target="_blank">Vrije Universiteit Amsterdam</a></h3>
+          <p data-localize="education.VU"></p>
+        </div>
+      </div>
+      <div class="school">
+        <p>2014-2017</p>
+        <div>
+          <h3><a href="https://www.markham.edu.pe/" target="_blank">Markham College</a></h3>
+          <p data-localize="education.markham"></p>
+        </div>
+      </div>
+      <div class="school">
+        <p>2007-2014</p>
+        <div>
+          <h3><a href="https://www.mis-munich.de/" target="_blank">Munich International School</a></h3>
+        </div>
+      </div>
+    </section>
+
+    <div class="placeholder" id="work_experience"></div>
+    <section id="work">
+      <h2 data-localize="work.title"></h2>
+      <div class="job">
+        <p data-localize="work.rally.time"></p>
+        <div>
+          <h3 data-localize="work.rally.title"></h3>
+          <p data-localize="work.rally.description"></p>
+        </div>
+      </div>
+
+      <div class="job">
+        <p data-localize="work.TA.time"></p>
+        <div>
+          <h3 data-localize="work.TA.title"></h3>
+          <p data-localize="work.TA.description"></p>
+        </div>
+      </div>
+    </section>
+
+    <div class="placeholder" id="projects"></div>
+    <section id="my_projects">
+      <h2 data-localize="projects.title"></h2>
+
+      <div class="">
+
+        <div class="project">
+          <div class="lang">
+            <p>Python</p>
+          </div>
+          <div class="project_txt">
+            <p><a href="projects.html?project=bachelor">My Bachelor Project: The KitchenTools Knowledge Base</a></p>
+          </div>
+        </div>
+
+        <div class="project">
+          <div class="lang">
+            <p>C</p>
+          </div>
+          <div  class="project_txt">
+            <p><a href="projects.html?project=singing_robot">A Singing Robot</a></p>
+            <p><a href="projects.html?project=ijvm">The IJVM instruction set</a></p>
+            <p><a href="projects.html?project=malloc">Memory Management: Implementing malloc(), calloc() & free()</a></p>
+            <p><a href="projects.html?project=tcp_handshake">The TCP 3-way handshake</a></p>
+            <p><a href="projects.html?project=encrypted_msg">A secure messanger</a></p>
+          </div>
+        </div>
+
+        <div class="project">
+          <div class="lang">
+            <p>C++</p>
+          </div>
+          <div class="project_txt">
+            <p><a href="projects.html?project=compiler_algorithms">Compiler features for FenneC</a></p>
+          </div>
+        </div>
+
+        <div class="project">
+          <div class="lang">
+            <p>Java</p>
+          </div>
+          <div class="project_txt">
+            <p><a href="projects.html?project=fantasy_football">A Fantasy Football game</a></p>
+            <p><a href="projects.html?project=concurrent_data_structures">Concurrent data structures</a></p>
+          </div>
+        </div>
+
+        <div class="project">
+          <div class="lang">
+            <p>Scala</p>
+          </div>
+          <div class="project_txt">
+            <p><a href="projects.html?project=tetris_and_snake">Tetris and Snake</a></p>
+          </div>
+        </div>
+
+        <div class="project">
+          <div class="lang">
+            <p>PHP, SQL, HTML, CSS</p>
+          </div>
+          <div class="project_txt">
+            <p><a href="projects.html?project=VU_student_app">A Prototype of the VU student app</a></p>
+          </div>
+        </div>
+
+        <div class="project">
+          <div class="lang">
+            <p>JavaScript, HTML, CSS</p>
+          </div>
+          <div class="project_txt">
+            <p><a href="https://tourbavaria.com" target="_blank">tourbavaria.com</a></p>
+            <p><a href="#game_of_life">Game Of Life</a></p>
+          </div>
+        </div>
+
+        <div class="project">
+          <div class="lang">
+            <p>JavaScript, PHP, SQL, HTML, CSS</p>
+          </div>
+          <div class="project_txt">
+            <p><a href="projects.html?project=shoppting_cart">Shopping cart of a fictional supermarket</a></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </body>
+  <script src="script/game_class.js"></script>
+  <script src="script/game_of_life.js"></script>
+  <script src="script/translate.js"></script>
+
+</html>

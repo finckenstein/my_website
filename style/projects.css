@@ -1,0 +1,35 @@
+*{
+  margin: 0;
+  font-family: 'Roboto Mono';
+}
+
+#my_projects > div{padding-left: 2.5%; padding-top: 2.5%;}
+
+#project{
+  display: grid;
+  grid-template-columns: 5vw auto;
+  grid-template-rows: auto auto auto;
+  padding: 5% 2%;
+}
+
+#project_description > a, #project_description > i>a{
+  text-decoration: underline;
+  color: black;
+}
+
+#p_back{
+  grid-area: 1/1/2/2;
+  font-size: 500%;
+  border: solid thin;
+  text-decoration: none;
+  color: black;
+}
+#project_title{
+  padding-left: 5%;
+  grid-area: 2/2/3/3;
+  padding-bottom: 2.5%;
+}
+#project_description{
+  padding-left: 5%;
+  grid-area: 3/2/4/3;
+}

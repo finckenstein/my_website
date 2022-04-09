@@ -1,0 +1,104 @@
+*{
+  margin: 0;
+  font-family: 'Roboto Mono';
+}
+
+header{
+  position: fixed;
+  width: 100%;
+  border: solid thin;
+}
+header > div{
+  display: flex;
+  justify-content: space-evenly;
+  padding: 1% 0%;
+  background-color: white;
+}
+a{text-decoration: none;color: black;}
+h2{font-size: 200%; padding-bottom: 1%;}
+h3{font-size: 140%; padding-bottom: 1%;}
+h3 > a{text-decoration: underline;}
+img{width: 100%;}
+
+#game{
+  width: 100%;
+  height: 80vh;
+  overflow: auto;
+}
+#game_controls{
+  height: 90vh;
+  scroll-snap-align: center;
+}
+
+#stop_game, #pause_game{opacity: 0.25;}
+
+#body_of_all{
+  scroll-snap-type: y mandatory;
+  display: flex;
+  flex: none;
+  flex-flow: column nowrap;
+}
+
+#personal, #my_education, #my_projects, #work{
+  border-top: solid;
+  scroll-snap-align: center;
+  height: 90vh;
+  padding: 4% 2%;
+  overflow-y: auto;
+}
+
+
+
+#profile{
+  width: 20%;
+  float: right;
+  padding-left: 5%;
+}
+#profile > img{border: solid;}
+#occupation{font-size: 150%; padding-bottom: 2.5%;}
+
+#personal_info{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-bottom: 2.5%;
+}
+#personal_info > div{
+  display: flex;
+  align-items: center;
+}
+#personal_info > div > a{padding-left: 2.5%;}
+#whatsapp, #mail, #github, #linkedin{width: 4vw;}
+
+
+
+
+.school, .job{
+  padding-top: 3%;
+  padding-left: 2.5%;
+  display: grid;
+  grid-template-rows: auto;
+}
+.job{grid-template-columns: 17vw auto;}
+.school{grid-template-columns: 15vw auto;}
+
+.school > p, .job > p{grid-area: 1/1/2/2;}
+.school > div, .job > div{grid-area: 1/2/2/3;}
+.school > div > p > a, .job > div > p > a{text-decoration: underline;}
+
+
+
+
+.project{
+  display: grid;
+  grid-template-rows: auto;
+  grid-template-columns: 20vw auto;
+  border-bottom: solid thin;
+  padding: 1% 0%;
+}
+.lang{
+  grid-area: 1/1/2/2;
+  padding-right: 5%;
+}
+.project_txt{grid-area: 1/2/2/3;}
+.project_txt > p{padding: 0.35% 0%;}

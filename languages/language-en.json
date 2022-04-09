@@ -1,0 +1,88 @@
+{"header": {
+  "game":"Game Of Life",
+  "about":"About Me",
+  "education":"Education",
+  "work":"Work Experience",
+  "projects":"Projects"
+  },
+  "game":{
+    "start":"Start",
+    "pause":"Pause",
+    "stop":"Stop",
+    "draw":"Drag & Draw",
+    "delete":"Drag & Delete"
+  },
+  "about":{
+    "occupation": "Problem-Solver & Developer",
+    "statement": "My bachelor in Computer Science taught me to effectively analyze a wide variety of problems and use and develop technology to solve them. Hence, I consider myself a problem-solver and developer. I am keen to demonstrate this and apply my acquired hard skills in my employment. On a personal note, I like to get out of my comfort zone as often as possible to learn something new everyday."
+  },
+  "education":{
+    "title": "Education",
+    "VU": "Bachelor Degree in Computer Science. Minored in 'Deep Programming'. For a complete list of grades, <a href='documents/grade_list.pdf' target='_blank'>click here.</a>",
+    "markham": "(2015-2017) <a href='documents/IB_diploma.pdf' target='_blank'>International Baccalaureate Diploma:</a> 35/40.<br> (2014-2015) Cambridge IGCSE"
+  },
+  "work":{
+    "title":"Work Experience",
+    "rally":{
+      "time":"2019-current",
+      "title":"Freelance Web Developer for the Tour Bavaria Rally",
+      "description":"<strong>Responsibilities:</strong> I built and continue to update the <a href='https://tourbavaria.com' target='_blank'>tourbavaria.com</a>."
+    },
+    "TA":{
+      "time":"2021 February-June",
+      "title":"Teaching Assistant for the Software Design course (XB_40007) at the Vrije Universiteit Amsterdam",
+      "description":"<strong>Responsibilities:</strong> I had weekly meetings with groups to discuss their UML diagrams and the design patterns used in their software projects. The groups had to program the card game 'Exploding Kittens' and write a report describing their software through UML diagrams and elaborate upon the design patterns they used."
+    }
+  },
+  "projects":{
+    "title":"Projects worth mentioning",
+    "bachelor":{
+      "title": "Bachelor Project: KitchenToolsKB",
+      "description": "The aim of my bachelor thesis was to autonomously extract common sense knowledge from cooking recipes, scraped from <a href='https://tasty.co' target='_blank'>tasty.co</a>, and store it in a knowledge base. This was achieved by developing multi-modal information extraction methods, which made use of a NLP library called <a href='https://spacy.io/' target='_blank'>SpaCy</a>, <a href='https://conceptnet.io/' target='_blank'>ConceptNet's API</a>, and the <a href='https://github.com/tensorflow/models/tree/master/research/object_detection' target='_blank'>TensorFlow object detection API</a> that train a custom object detector. The detector uses the Single Shot MultiBox Detector algorithm (SSD) to identify kitchen tools as the knowledge to be extracted focuses on the utility of tools (how and when the tools are used). The abstract below summerizes the project. The entire thesis can be read <a href='documents/bachelor_thesis.pdf' target='_blank'>here</a> and the codebase is on <a href='https://github.com/leanderFinck1999/KitchenToolsKB' target='_blank'>github</a>.<br><br><i>'The thesis presents 4 information extraction methods that automatically construct a knowledge base, called the KitchenToolsKB. The knowledge base stores commonsense knowledge found in cooking recipe by pairing kitchen tools to the verbs that describe their actions, to the food they cook, and to other tools that are used in combination. The semantic relations are represented through weighted edges such as UsedFor, EatWith & OperateWith etc., and are extracted from textual and video recipes authored by the tasty.co website. The text and video are parsed simultaneously using a novel synchronization method to pair the tools shown in the videos to the verbs and food mentioned in the text. To identify the tools, the thesis trained a object detector on a custom data set containing 12,500 labelled images of 44 kitchen tools. The evaluation compares the extracted knowledge to a set of ground truth values which yield relatively low precision but high recall scores. All code used for the thesis is available on: <a href='https://github.com/leanderFinck1999/KitchenToolsKB' target='_blank'>github.com/leanderFinck1999/KitchenToolsKB.</a><i>'"
+    },
+    "singing_robot":{
+      "title": "A Singing Robot",
+      "description": "The final project of the Pervasive Computing course was to create a pervasive system. For this project my team created a singing robot, which reads as input the wavelength of the color, and outputs a frequency given by the color. The idea is that if the roboter rolls over a colorful track, it can read the colors as if they were music notes. <br><br>TODO: add greater description and show code."
+    },
+    "ijvm":{
+      "title": "Implemeting IJVM instruction set",
+      "description": ""
+    },
+    "malloc":{
+      "title": "Memory Management: Implemeting malloc(), calloc() & free()",
+      "description": ""
+    },
+    "tcp_handshake":{
+      "title": "Implementing the TCP 3-way handshake",
+      "description": ""
+    },
+    "encrypted_msg":{
+      "title": "Builing a encrypted messanger",
+      "description": ""
+    },
+    "compiler_algorithms":{
+      "title": "Developing Compiler features for FenneC",
+      "description": "Part of the Compiler Construction course was to develop a number of frontend features and various basic optimization passes for FenneC, a educational programming language specifically desinged for this course. For the <a href='https://github.com/jakemassoth/CoCo/tree/main/frontend' target='_blank'>frontend</a>, my partner and I had to implement the float type, loops and break/continue statements. The frontend was written in python and used the PLY library to transform FenneC into a LLVM intermediate representation (IR).<br><br>For the basic <a href='https://github.com/jakemassoth/CoCo/tree/main/llvm-passes' target='_blank'>optimization passes</a>, we used the LLVM IR that was produced by the frontend, analyzed it, and turned it into more efficient (but logically equal) LLVM with its <a href='https://releases.llvm.org/10.0.0/docs/ProgrammersManual.html' target='_blank'>API</a> written completely in C++. For example, the <a href='https://github.com/jakemassoth/CoCo/blob/main/llvm-passes/LicmPass.cpp' target='_blank'>Loop-invariant code motion (LICM) pass</a> moves unecessary computations performed within of a loop, outside of it, which saves computational power while maintaining the semantics of the program. The other optimizations passes included the <a href='https://github.com/jakemassoth/CoCo/blob/main/llvm-passes/AdcePass.cpp' target='_blank'>Dead code elimination (ADCE) pass</a> and the <a href='https://github.com/jakemassoth/CoCo/blob/main/llvm-passes/ConstantPropagationPass.cpp' target='_blank'>Constant Propagation pass</a>.<br><br>The last <a href='https://github.com/jakemassoth/CoCo/blob/main/llvm-passes/BoundsCheckPass.cpp' target='_blank'>pass</a> prevents buffer over-flows in FenneC. The pass checks whether the index used to access a array is within the arrays bounds (i.e. within the memorry allocated for it). In other languages like C, such bound checks do not exists, making it a unsafe language since memory can be read from or written to randomly. The assignments demystified the abstraction of a compiler which gave me further insights into the construction of programming langues."
+    },
+    "fantasy_football":{
+      "title": "The Fantasy Football Game",
+      "description": ""
+    },
+    "concurrent_data_structures":{
+      "title": "Concurrent Data Structures",
+      "description": ""
+    },
+    "tetris_and_snake":{
+      "title": "Building Tetris and Snake",
+      "description": ""
+    },
+    "VU_student_app":{
+      "title": "A Prototype of the VU student app",
+      "description": ""
+    },
+    "shoppting_cart":{
+      "title": "A shopping cart of fictional supermarket",
+      "description": ""
+    }
+  }
+}
