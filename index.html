@@ -6,6 +6,7 @@
 
     <script src="script/jquery_backup/jquery-1.11.0.min.js"></script>
     <script src="script/jquery_backup/jquery_localize.js"></script>
+    <link rel="shortcut icon" href="#">
 
   </head>
 
@@ -20,9 +21,9 @@
   </header>
 
   <body id="body_of_all">
-    <div class="placeholder" id="game_of_life"></div>
+    <div class='placeholder' id="game_of_life"></div>
+    <div id="game"></div>
     <section id="game_controls">
-      <div id="game"></div>
       <button id="start_game" onclick="start_game()" data-localize="game.start"></button>
       <button id="pause_game" onclick="pause_game()" data-localize="game.pause"></button>
       <button id="stop_game" onclick="stop_game()" data-localize="game.stop"></button>
@@ -107,15 +108,13 @@
     <div class="placeholder" id="projects"></div>
     <section id="my_projects">
       <h2 data-localize="projects.title"></h2>
-
-      <div class="">
-
+      <div>
         <div class="project">
           <div class="lang">
             <p>Python</p>
           </div>
           <div class="project_txt">
-            <p><a href="projects.html?project=bachelor">My Bachelor Project: The KitchenTools Knowledge Base</a></p>
+            <p><a href="single_project.html?project=bachelor" data-localize="projects.t_bachelor"></a></p>
           </div>
         </div>
 
@@ -124,11 +123,11 @@
             <p>C</p>
           </div>
           <div  class="project_txt">
-            <p><a href="projects.html?project=singing_robot">A Singing Robot</a></p>
-            <p><a href="projects.html?project=ijvm">The IJVM instruction set</a></p>
-            <p><a href="projects.html?project=malloc">Memory Management: Implementing malloc(), calloc() & free()</a></p>
-            <p><a href="projects.html?project=tcp_handshake">The TCP 3-way handshake</a></p>
-            <p><a href="projects.html?project=encrypted_msg">A secure messanger</a></p>
+            <p><a href="single_project.html?project=singing_robot" data-localize="projects.t_singing_robot"></a></p>
+            <p><a href="single_project.html?project=ijvm" data-localize="projects.t_ijvm"></a></p>
+            <p><a href="single_project.html?project=malloc" data-localize="projects.t_malloc"></a></p>
+            <p><a href="single_project.html?project=tcp_handshake" data-localize="projects.t_tcp_handshake"></a></p>
+            <p><a href="single_project.html?project=encrypted_msg" data-localize="projects.t_encrypted_msg"></a></p>
           </div>
         </div>
 
@@ -137,7 +136,7 @@
             <p>C++</p>
           </div>
           <div class="project_txt">
-            <p><a href="projects.html?project=compiler_algorithms">Compiler features for FenneC</a></p>
+            <p><a href="single_project.html?project=compiler_algorithms" data-localize="projects.t_compiler_algorithms"></a></p>
           </div>
         </div>
 
@@ -146,8 +145,8 @@
             <p>Java</p>
           </div>
           <div class="project_txt">
-            <p><a href="projects.html?project=fantasy_football">A Fantasy Football game</a></p>
-            <p><a href="projects.html?project=concurrent_data_structures">Concurrent data structures</a></p>
+            <p><a href="single_project.html?project=fantasy_football" data-localize="projects.t_fantasy_football"></a></p>
+            <p><a href="single_project.html?project=concurrent_data_structures" data-localize="projects.t_concurrent_data_structures"></a></p>
           </div>
         </div>
 
@@ -156,7 +155,7 @@
             <p>Scala</p>
           </div>
           <div class="project_txt">
-            <p><a href="projects.html?project=tetris_and_snake">Tetris and Snake</a></p>
+            <p><a href="single_project.html?project=tetris_and_snake" data-localize="projects.t_tetris_and_snake"></a></p>
           </div>
         </div>
 
@@ -165,7 +164,7 @@
             <p>PHP, SQL, HTML, CSS</p>
           </div>
           <div class="project_txt">
-            <p><a href="projects.html?project=VU_student_app">A Prototype of the VU student app</a></p>
+            <p><a href="single_project.html?project=VU_student_app" data-localize="projects.t_VU_student_app"></a></p>
           </div>
         </div>
 
@@ -175,7 +174,7 @@
           </div>
           <div class="project_txt">
             <p><a href="https://tourbavaria.com" target="_blank">tourbavaria.com</a></p>
-            <p><a href="#game_of_life">Game Of Life</a></p>
+            <p><a href="#game_of_life" data-localize="projects.t_gol"></a></p>
           </div>
         </div>
 
@@ -184,7 +183,7 @@
             <p>JavaScript, PHP, SQL, HTML, CSS</p>
           </div>
           <div class="project_txt">
-            <p><a href="projects.html?project=shoppting_cart">Shopping cart of a fictional supermarket</a></p>
+            <p><a href="single_project.html?project=shoppting_cart" data-localize="projects.t_shoppting_cart"></a></p>
           </div>
         </div>
       </div>

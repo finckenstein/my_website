@@ -2,8 +2,8 @@ class GameBoard{
   constructor(){
     let tmp_dim = 20;
     this.game_board = document.getElementById("game");
-    this.screen_height = window.innerHeight / tmp_dim;
-    this.screen_width =  window.innerWidth / tmp_dim;
+    this.screen_height = Math.floor((window.innerHeight / tmp_dim) - ((window.innerHeight / tmp_dim)*0.1));
+    this.screen_width =  Math.floor(window.innerWidth / tmp_dim);
     this.border = "solid thin black";
     this.div_dim = tmp_dim+"px";
     this.div_attribute = "data-is_alive";
@@ -20,7 +20,8 @@ class GameBoard{
       for (let x=0; x<this.screen_width; x++){
         let tmp_div = document.createElement("div");
 
-        tmp_div.style.borderRight = tmp_div.style.borderTop = "solid thin grey";
+        tmp_div.style.border = "solid thin grey";
+        //stmp_div.style.borderTop = "solid thin grey";
         tmp_div.style.width = this.div_dim;
 
         tmp_div.setAttribute("id", x+" "+y);
@@ -59,13 +60,11 @@ class GameBoard{
 
   kill_cell(cell){
     cell.style.backgroundColor = "white";
-    cell.style.border ="solid thin grey";
     cell.setAttribute(this.div_attribute, 0);
   }
 
   set_cell_alive(cell){
     cell.style.backgroundColor = "black";
-    cell.style.border = this.border;
     cell.setAttribute(this.div_attribute, 1);
   }
 
@@ -92,7 +91,10 @@ class GameLogic{
       for(let x=0; x<this.board.screen_width; x++){
         let cell = document.getElementById(x+" "+y);
         let neighbors = this.get_neighbors(x, y);
-        let num_of_alive_neighbor = this.get_number_of_alive(neighbors);
+        let value_neighbors = this.value_of_neighbors(neighbors);
+        // value_neighbors.forEach(element => {console.log(element, typeof(element));});
+        let num_of_alive_neighbor = this.get_number_of_alive(value_neighbors);
+        //console.log("num_of_alive_neighbor: ", num_of_alive_neighbor);
 
         if(cell.getAttribute(this.board.div_attribute) == 1){ //is alive. Kill?
           alive_cell = true;
@@ -121,6 +123,9 @@ class GameLogic{
 
   get_neighbors(x, y){
     let neigh;
+    x = Number(x);
+    y = Number(y);
+
     let x_plus = x + 1;
     let x_minus = x - 1;
     let y_plus = y + 1;
@@ -144,15 +149,17 @@ class GameLogic{
     else if(y == this.board.screen_height-1){neigh = [x_minus+" "+y, x_minus+" "+y_minus, x+" "+y_minus, x_plus+" "+y_minus, x_plus+" "+y];}
     //in the middle of grid
     else{
-      neigh=[x+" "+y_minus,  x_plus+" "+y_minus, x_plus+" "+y, x_plus+" "+y_plus, x+" "+y_plus, x_minus+" "+y_plus, x_minus+" "+y, x_minus+" "+y_minus];}
-    return this.value_of_neighbors(neigh);
+      neigh=[x+" "+y_minus, x_plus+" "+y_minus, x_plus+" "+y, x_plus+" "+y_plus, x+" "+y_plus, x_minus+" "+y_plus, x_minus+" "+y, x_minus+" "+y_minus];}
+    return neigh;
   }
 
   value_of_neighbors(id_of_neighbors){
     let values = [];
+    //console.log(id_of_neighbors);
     for(let i=0; i < id_of_neighbors.length; ++i){
       let neighbor_cell = document.getElementById(id_of_neighbors[i]);
-      values.push(neighbor_cell.getAttribute(this.board.div_attribute));
+      let neigh_val = neighbor_cell.getAttribute(this.board.div_attribute);
+      values.push(neigh_val);
     }
     return values;
   }
