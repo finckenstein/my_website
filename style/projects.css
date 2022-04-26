@@ -10,7 +10,7 @@
     flex-direction: column;
   }
   button:hover{cursor: pointer;}
-  #project_description > a, #project_description > i>a{text-decoration: underline;}
+  .txt_link{text-decoration: underline;}
   #project{
     display: grid;
     grid-template-rows: auto auto;
@@ -51,6 +51,7 @@
   }
   h1{font-size: 150%; padding-bottom: 2.5%;}
   p{font-size: 105%;}
+  .txt_link{font-size: 105%;}
 }
 
 @media print, screen and (max-width: 1050px) and (min-width: 551px){
@@ -71,6 +72,7 @@
   #project_title{padding-bottom: 2.5%;}
   h1{font-size: 200%;}
   p{font-size: 115%;}
+  .txt_link{font-size: 115%;}
 }
 
 @media screen and (min-width: 1051px){
@@ -91,4 +93,5 @@
   #project_title{padding-bottom: 1.5%;}
   h1{font-size: 220%;}
   p{font-size: 110%;}
+  .txt_link{font-size: 110%;}
 }

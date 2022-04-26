@@ -1,10 +1,6 @@
 class GameBoard{
   constructor(){
-    let tmp_dim;
-    if(window.matchMedia("(max-width: 550px)").matches){tmp_dim = 12.75;}
-    else if(window.matchMedia("(max-width: 1050px) and (min-width: 551px)").matches){tmp_dim = 14;}
-    else{tmp_dim = 15;}
-
+    let tmp_dim = this.get_div_dim();
     this.game_board = document.getElementById("game_display");
     this.screen_height = Math.floor((window.innerHeight-(document.getElementById("header").clientHeight+document.getElementById("game_controls").clientHeight))/tmp_dim);
     this.screen_width =  Math.floor(window.innerWidth/tmp_dim);
@@ -20,12 +16,19 @@ class GameBoard{
     this.initialize(true, null);
   }
 
+  get_div_dim(){
+    if(window.matchMedia("(max-width: 550px)").matches){return 12.75;}
+    else if(window.matchMedia("(max-width: 1050px) and (min-width: 551px)").matches){return 14;}
+    else{return 15;}
+  }
+
   initialize(draw_starting_pattern, alive_cells){
     this.divs_to_game_board(draw_starting_pattern, alive_cells);
     this.draw_grid();
   }
 
   divs_to_game_board(draw_starting_pattern, alive_cells){
+    this.div_dim = this.get_div_dim()+"px";
     for (let y=0; y<this.screen_height; y++){
       for (let x=0; x<this.screen_width; x++){
         let tmp_div = document.createElement("div");
@@ -199,7 +202,7 @@ class GameBoard{
     cell.setAttribute(this.div_attribute, 1);
   }
 
-  get_all_alive_cells(post_data){
+  get_all_alive_cells(data_to_post){
     let alive_cells = [];
     for (let y=0; y<this.screen_height; y++){
       for (let x=0; x<this.screen_width; x++){
@@ -209,7 +212,10 @@ class GameBoard{
         }
       }
     }
-    if(post_data){post_data(alive_cells);}
+    if(data_to_post){
+      console.log("about to post data");
+      post_data(alive_cells);
+    }
     else{return alive_cells;}
   }
 
@@ -304,7 +310,19 @@ class GameLogic{
 function get_data(board){
   var response_data;
   var xhr = new XMLHttpRequest();
-  xhr.open("GET", "script/game_of_life/welcome_desktop.txt", true);
+  let file_name;
+  console.log(screen.width);
+  console.log(window.matchMedia("(max-height: 600px)").matches);
+  if(window.matchMedia("(max-width: 290px)").matches){ // && window.matchMedia("(max-height: 760px)").matches
+    file_name="no_walker_pattern.txt";
+  }
+  else if(window.matchMedia("(max-width: 500px)").matches && window.matchMedia("(max-height: 500px)").matches){
+    file_name="no_mid_pattern.txt";
+  }
+  else{
+    file_name="full_pattern.txt";
+  }
+  xhr.open("GET", "script/gol_patterns/"+file_name, true);
   xhr.setRequestHeader("Accept", "application/text");
 
   xhr.onreadystatechange = function () {
@@ -323,6 +341,7 @@ function post_data(coor_to_store){
   xhr.setRequestHeader("Content-Type", "application/text");
   xhr.onreadystatechange = function () {
     if (xhr.readyState === 4){
+      // Run sudo chmod -R 777 my_web when permission is denied
       // console.log(xhr.responseText);
     }
   };
