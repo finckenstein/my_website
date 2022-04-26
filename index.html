@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Roboto Mono' rel='stylesheet'>
+    <link rel="stylesheet" type="text/css" href="style/mode_switch.css">
+    <link rel="stylesheet" type="text/css" href="style/index.css">
+
+    <script src="script/jquery_backup/jquery-1.11.0.min.js"></script>
+    <script src="script/jquery_backup/jquery_localize.js"></script>
+    <link rel="shortcut icon" href="#">
+
+    <title>Leander Finckenstein</title>
+    <link href="documents/my_web_icon.png" rel="icon">
+
+  </head>
+
+    <header id="header">
+      <div id="header_div">
+        <div class="header_a_wrapper" data-is_viewed="0" data-section_id="game">
+          <button onclick="jump_to('game_of_life')" data-localize="header.game"></button>
+        </div>
+        <div class="header_a_wrapper" data-is_viewed="0" data-section_id="personal">
+          <button onclick="jump_to('about_me')" data-localize="header.about"></button>
+        </div>
+        <div class="header_a_wrapper" data-is_viewed="0" data-section_id="my_education">
+          <button onclick="jump_to('education')" data-localize="header.education"></button>
+        </div>
+        <div class="header_a_wrapper" data-is_viewed="0" data-section_id="work">
+          <button onclick="jump_to('work_experience')" data-localize="header.work"></button>
+        </div>
+        <div class="header_a_wrapper" data-is_viewed="0" data-section_id="my_projects">
+          <button onclick="jump_to('projects')" data-localize="header.projects"></button>
+        </div>
+      </div>
+
+      <div id="mode_switch">
+        <label class="switch">
+          <input onclick="change_mode()" id="mode_input" type="checkbox">
+          <span id="mode_slider"></span>
+        </label>
+        <p id="display_mode" data-localize="header.light"></p>
+      </div>
+      <div id="navbar_symbol_div2"><div id="navbar_symbol_div"><img id="navbar_symbol" data-src="documents/navbarsymbol_white.png"></div>
+    </header>
+
+  <body id="body_of_all">
+
+    <div id="explanation_wrapper" data-is_open=0>
+      <div id="game_explanation_txt">
+        <div>
+          <h2 data-localize="game.explanation.title"></h3>
+          <button class="btn_border" id="hide_game_explanation" onclick="hide_game_explanation()">X</button>
+        </div>
+        <p data-localize="game.explanation.description"></p>
+      </div>
+    </div>
+
+    <div class='placeholder' id="game_of_life"></div>
+    <section id="game">
+      <div id="game_display_div"><div id="game_display"  ontouchmove="register_move(event)"></div></div>
+      <div id="game_controls">
+        <div class="game_control_div" id="start_game_div"><button class="btn_border" id="start_game" onclick="start_game()" data-localize="game.start"></button></div>
+        <div class="game_control_div" id="pause_game_div"><button class="btn_border" id="pause_game" onclick="pause_game()" data-localize="game.pause"></button></div>
+        <div class="game_control_div" id="stop_game_div"><button class="btn_border" id="stop_game" onclick="stop_game()" data-localize="game.stop"></button></div>
+        <div class="game_control_div" id="draw_cells_div"><button class="btn_border" id="draw_cells" onclick="move_to_change(true)" data-localize="game.draw"></button></div>
+        <div class="game_control_div" id="erase_cells_div"><button class="btn_border" id="erase_cells" onclick="move_to_change(false)" data-localize="game.delete"></button></div>
+        <!-- <button class="btn_border" onclick="take_screen_shot()">Screen Shot</button> -->
+        <div id="intreval_div">
+          <input id="intreval_time" type="range" min="50" max="1000" value="100"></input>
+          <p id="show_intreval_time">0.1 sec</p>
+        </div>
+        <div id="game_explanation_div"><button class="btn_border" id="game_explanation" onclick="show_game_explanation()">?</button></div>
+      </div>
+    </section>
+
+    <div class="placeholder" id="about_me"></div>
+    <section id="personal" class="section_info">
+      <h2>Leander Finckenstein</h2>
+      <div id="profile"><img id="profile_pic" src="documents/profile.jpg" alt="Profile" loading="lazy"></div>
+      <p id="occupation" data-localize="about.occupation"></p>
+      </div>
+      <div id="personal_info">
+        <div id="whatsapp_div"><div><a href="https://api.whatsapp.com/send?phone=4915253011101" target="_blank"><img id="whatsapp" class="p_img" data-src="documents/whatsapp_white.png" alt="whatsapp" loading="lazy"></a></div></div>
+        <div id="whatsapp_num"><a href="https://api.whatsapp.com/send?phone=4915253011101" target="_blank">+49-1525-3011101</a></div>
+        <div id="mail_div"><div><a href="mailto:leander.finck@gmail.com"><img id="mail" class="p_img" data-src="documents/mail_white.png" alt="mail" loading="lazy"></a></div></div>
+        <div id="mail_txt"><a href="mailto:leander.finck@gmail.com">leander.finck@gmail.com</a></div>
+        <div id="github_div"><div><a href="https://github.com/leanderFinck1999" target="_blank"><img id="github" class="p_img" data-src="documents/github_white.png" alt="github" loading="lazy"></a></div></div>
+        <div id="linkedin_div"><div><a href="https://www.linkedin.com/in/leander-finckenstein-0920971b5/" target="_blank"><img id="linkedin" class="p_img" data-src="documents/linkedin_white.png" alt="linkedin" loading="lazy"></a></div></div>
+      </div>
+      <p id="about_me" data-localize="about.statement"></p>
+    </section>
+
+    <div class="placeholder" id="education"></div>
+    <section id="my_education" class="section_info">
+      <h2 data-localize="education.title"></h2>
+      <div class="school">
+        <p><span class='date'>2018</span><span class='hyphen'>-</span><span class='date'>2021</span></p>
+        <div>
+          <h3><a href="https://vu.nl/en/education/bachelor/computer-science" target="_blank">Vrije Universiteit Amsterdam</a></h3>
+          <p data-localize="education.VU"></p>
+        </div>
+      </div>
+      <div class="school">
+        <p><span class='date'>2014</span><span class='hyphen'>-</span><span class='date'>2017</span></p>
+        <div>
+          <h3><a href="https://www.markham.edu.pe/" target="_blank">Markham College</a></h3>
+          <p data-localize="education.markham"></p>
+        </div>
+      </div>
+      <div class="school">
+        <p><span class='date'>2007</span><span class='hyphen'>-</span><span class='date'>2014</span></p>
+        <div>
+          <h3><a href="https://www.mis-munich.de/" target="_blank">Munich International School</a></h3>
+        </div>
+      </div>
+    </section>
+
+    <div class="placeholder" id="work_experience"></div>
+    <section id="work" class="section_info">
+      <h2 data-localize="work.title"></h2>
+      <div class="job">
+        <p data-localize="work.rally.time"></p>
+        <div>
+          <h3 data-localize="work.rally.title"></h3>
+          <p data-localize="work.rally.description"></p>
+        </div>
+      </div>
+
+      <div class="job">
+        <p data-localize="work.TA.time"></p>
+        <div>
+          <h3 data-localize="work.TA.title"></h3>
+          <p data-localize="work.TA.description"></p>
+        </div>
+      </div>
+    </section>
+
+    <div class="placeholder" id="projects"></div>
+    <section id="my_projects" class="section_info">
+      <h2 data-localize="projects.title"></h2>
+      <p data-localize="projects.txt">></p>
+      <div>
+        <div class="project">
+          <div class="lang">
+            <p>Python</p>
+          </div>
+          <div class="project_txt">
+            <p><a href="single_project.html?project=bachelor" data-localize="projects.t_bachelor"></a></p>
+          </div>
+        </div>
+
+        <div class="project">
+          <div class="lang">
+            <p>C</p>
+          </div>
+          <div class="project_txt">
+            <p><a href="single_project.html?project=singing_robot" data-localize="projects.t_singing_robot"></a></p>
+            <p><a href="single_project.html?project=ijvm" data-localize="projects.t_ijvm"></a></p>
+            <p><a href="single_project.html?project=malloc" data-localize="projects.t_malloc"></a></p>
+            <p><a href="single_project.html?project=tcp_handshake" data-localize="projects.t_tcp_handshake"></a></p>
+            <p><a href="single_project.html?project=encrypted_msg" data-localize="projects.t_encrypted_msg"></a></p>
+          </div>
+        </div>
+
+        <div class="project">
+          <div class="lang">
+            <p>C++</p>
+          </div>
+          <div class="project_txt">
+            <p><a href="single_project.html?project=compiler_algorithms" data-localize="projects.t_compiler_algorithms"></a></p>
+          </div>
+        </div>
+
+        <div class="project">
+          <div class="lang">
+            <p>Java</p>
+          </div>
+          <div class="project_txt">
+            <p><a href="single_project.html?project=fantasy_football" data-localize="projects.t_fantasy_football"></a></p>
+            <p><a href="single_project.html?project=concurrent_data_structures" data-localize="projects.t_concurrent_data_structures"></a></p>
+          </div>
+        </div>
+
+        <div class="project">
+          <div class="lang">
+            <p>Scala</p>
+          </div>
+          <div class="project_txt">
+            <p><a href="single_project.html?project=tetris_and_snake" data-localize="projects.t_tetris_and_snake"></a></p>
+          </div>
+        </div>
+
+        <div class="project">
+          <div class="lang">
+            <p><span class='date'>PHP, </span><span class='date'>SQL, </span><span class='date'>HTML, </span><span class='date'>CSS</span></p>
+          </div>
+          <div class="project_txt">
+            <p><a href="single_project.html?project=VU_student_app" data-localize="projects.t_VU_student_app"></a></p>
+          </div>
+        </div>
+
+        <div class="project">
+          <div class="lang">
+            <p><span class='date'><span class="javascript">Java</span>Script, </span><span class='date'>HTML, </span><span class='date'>CSS</span></p>
+          </div>
+          <div class="project_txt">
+            <p id="t_gol" onclick="open_up_gol_info()" data-localize="projects.t_gol"></p>
+          </div>
+        </div>
+
+        <div class="project">
+          <div class="lang">
+            <p><span class='date'><span class="javascript">Java</span>Script, </span><span class='date'>PHP, </span><span class='date'>SQL, </span><span class='date'>HTML, </span><span class='date'>CSS</span></p>
+          </div>
+          <div class="project_txt">
+            <p><a href="single_project.html?project=shoppting_cart" data-localize="projects.t_shoppting_cart"></a></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </body>
+  <script src="script/translate.js"></script>
+  <script src="script/game_of_life/game_of_life.js"></script>
+  <script src="script/lazy_loading.js"></script>
+  <script src="script/change_mode.js"></script>
+
+  <script type="text/javascript">
+
+  document.addEventListener('visibilitychange', function (event) {
+    if (document.visibilityState === 'hidden'){pause_game();}
+    else if (window.pageYOffset < document.getElementById("game").offsetTop && document.getElementById("explanation_wrapper").getAttribute("data-is_open") != "1") {
+      start_game();
+    }
+  });
+
+  </script>
+
+</html>

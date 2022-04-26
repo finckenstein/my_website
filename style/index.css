@@ -1,0 +1,525 @@
+@media all{
+  *{
+    margin: 0;
+    font-family: 'Roboto Mono';
+  }
+
+  a{text-decoration: none; color: black;}
+  h3 > a{text-decoration: underline;}
+  img{width: 100%;}
+  p, h2{color: black;}
+  section{border-top: solid thin black;}
+  button:hover{cursor: pointer;}
+  /* HEADER */
+  header{
+    position:fixed;
+    width: 100vw;
+    top: 0px;
+    left: 0px;
+    z-index: 3;
+    border-bottom: solid black thin;
+    background-color: white;
+  }
+  #header_div{color: black;}
+  #personal, #my_education, #my_projects, #work{overflow-y: scroll;}
+
+  .header_a_wrapper{
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+  }
+  .header_a_wrapper > button{
+    background-color: transparent;
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+  #mode_switch{
+    display: flex;
+    width: 100%;
+  }
+
+  /* GAME CONTROLS */
+  #game_display_div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: auto;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+  #game_display_div::-webkit-scrollbar{display: none;}
+  #game_controls{width:100vw; height: auto; z-index: 4;}
+  #start_game{background-color:#cbffc0; opacity: 0.5;}
+  #pause_game{background-color:#ffe5c0;}
+  #stop_game{background-color:#ffc0c0;}
+  #draw_cells{background-color:#c0c9ff; opacity: 0.5;}
+  #erase_cells{background-color:#dfc0ff;}
+  #game_explanation{background-color:#ccc;}
+  #game_explanation{background-color:#ffc0c0;}
+
+  .game_control_div>button{
+    width: 100%;
+    height: 100%;
+  }
+
+  #stop_game, #pause_game, #draw_cells{opacity: 0.5; color: white;}
+  #start_game{color: white;}
+  #intreval_div{display: flex;}
+
+  #game_explanation_div{display: flex;}
+  #game_explanation_div > button{
+    width: 100%;
+    height: 100%;
+    border-radius: 10%;
+  }
+
+
+  /* GAME EXPLANATION */
+  #wiki{text-decoration: underline;}
+
+  #explanation_wrapper{
+    display: none;
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    background-color: rgba(0,0,0, 0.25);
+    justify-content: center; /* align horizontal */
+    align-items: center; /* align vertical */
+  }
+  #game_explanation_txt{
+    background-color: white;
+    border: solid thin black;
+    overflow-y: scroll;
+    z-index: 1;
+  }
+  #game_explanation_txt > div{
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+  }
+  #hide_game_explanation{border-radius: 10%;}
+
+
+  /* PROFILE */
+  #profile{float: right;}
+
+  #personal_info > div{
+    display: flex;
+    align-items: center;
+  }
+  #profile_pic{border: solid thin black;}
+
+
+
+  /*WORK EXPERIENCE AND EDUCATION  */
+  .school, .job{
+    display: grid;
+    grid-template-rows: auto;
+  }
+  .school > p, .job > p{grid-area: 1/1/2/2;}
+  .school > div, .job > div{grid-area: 1/2/2/3;}
+  .school > div > p > a, .job > div > p > a{text-decoration: underline;}
+
+
+  /* PROJECTS */
+  .project{
+    display: grid;
+    grid-template-rows: auto;
+  }
+  .lang{
+    grid-area: 1/1/2/2;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  .project_txt{grid-area: 1/2/2/3;}
+
+  #t_gol{cursor: pointer;}
+}
+
+/* HEADER BREAKPOINTS */
+@media only screen and (max-width: 720px){
+  header{
+    padding: 1% 0%;
+    display: grid;
+    grid-template-columns: 60vw 40vw;
+    grid-template-rows: auto auto;
+  }
+  #header_div{
+    grid-area: 2/1/3/3;
+    display: none;
+  }
+  .header_a_wrapper{
+    padding: 2% 0%;
+    border-top: solid black thin;
+    height: auto;
+  }
+  #mode_switch{
+    grid-area: 1/1/2/2;
+    align-items: center; /* align vertical */
+    justify-content: flex-start;
+    padding-left: 5%;
+  }
+  #display_mode{margin-left: 5%;}
+  #navbar_symbol_div{
+    grid-area: 1/2/2/3;
+  }
+  #navbar_symbol_div2{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding-right: 5%;
+  }
+}
+@media only screen and (min-width: 721px){
+  header{
+    padding: 0.5% 0%;
+    display: grid;
+    grid-template-columns: 83.34vw 16.66vw;
+    grid-template-rows: auto;
+  }
+  #header_div{
+    grid-area:1/1/2/2;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .header_a_wrapper{height: 100%;}
+  #mode_switch{
+    justify-content: center;
+    align-items: center;
+    grid-area:1/2/2/3;
+    flex-flow: column;
+  }
+  #navbar_symbol_div{display: none;}
+}
+@media only screen and (max-width: 550px){
+  #navbar_symbol_div{width: 30%;}
+}
+@media only screen and (min-width: 551px){
+  #navbar_symbol_div{width: 20%;}
+}
+
+/* GAME CONTROLS BREAKPOINTS */
+@media only screen and (max-width:615px){
+  #game_controls{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  #start_game, #pause_game, #stop_game, #draw_cells, #erase_cells{padding: 3.5% 0%;}
+  #start_game_div, #pause_game_div, #stop_game_div{width: 33.33%;}
+  #draw_cells_div, #erase_cells_div{width: 50%;}
+  #intreval_div{
+    width: 80%;
+    flex-direction: row-reverse;
+    justify-content: center; /* align horizontal */
+    align-items: center; /* align vertical */
+  }
+  #show_intreval_time{padding-right: 5%;}
+  #game_explanation_div > button{padding: 3.5% 0%;}
+  #game_explanation_div{width: 17%;}
+}
+@media only screen and (min-width:616px){
+  #game_controls{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  #game_explanation_div{
+    justify-content: flex-end;
+    width: 30%;
+  }
+  .game_control_div{width: 100%;}
+  #intreval_div{
+    flex-direction: column;
+    justify-content: center; /* align horizontal */
+    align-items: center; /* align vertical */
+    width: 100%;
+  }
+}
+
+
+/* GAME EXPLANATION BREAKPOINTS*/
+@media only screen and (max-width:675px){
+  #game_explanation_txt{
+    width: 80%;
+    height: 80%;
+    padding: 5%;
+  }
+  #hide_game_explanation{
+    width: 10%;
+    height: 10%;
+  }
+}
+@media only screen and (min-width:676px){
+  #game_explanation_txt{
+    width: 80%;
+    height: 60%;
+    padding: 3%;
+  }
+  #hide_game_explanation{
+    width: 5%;
+    height: 5%;
+  }
+}
+
+
+/* ABOUT ME BREAKPOINTS*/
+@media only screen and (max-width:644px){
+  #personal_info{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: auto auto auto auto;
+  }
+  #github_div, #linkedin_div{
+    display: grid;
+    align-items: center;
+    justify-content: center;
+  }
+  #whatsapp_div{grid-area: 1/1/2/2;}
+  #github_div{grid-area:1/2/2/3;}
+  #whatsapp_num{grid-area: 2/1/3/3;}
+  #mail_div{grid-area: 3/1/4/2;}
+  #linkedin_div{grid-area: 3/2/4/3;}
+  #mail_txt{grid-area: 4/1/5/3;}
+  #personal_info > div > div> a > img{width: 40px;}
+  #about_me{padding-top: 5%;}
+}
+@media only screen and (max-width: 999px) and (min-width: 645px){
+  #personal_info{
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+    grid-template-rows: auto auto;
+  }
+  #github_div, #linkedin_div{
+    display: grid;
+    align-items: center;
+    justify-content: center;
+  }
+  #whatsapp_div{grid-area: 1/1/2/2;}
+  #whatsapp_num{grid-area: 2/1/3/3;}
+  #github_div{grid-area:1/2/2/3;}
+  #mail_div{grid-area: 1/3/2/4;}
+  #mail_txt{grid-area: 2/3/3/5;}
+  #linkedin_div{grid-area: 1/4/2/5;}
+  #about_me{padding-top: 5%;}
+}
+@media only screen and (min-width:1000px){
+  #occupation{padding-bottom:5%;}
+
+  #profile{
+    width: 17.5%;
+    padding-left: 5%;
+    margin-top: -6%;
+    padding-bottom: 2.5%;
+  }
+  #personal_info{
+    display: flex;
+    flex-direction: row;
+    padding-bottom: 2.5%;
+  }
+  #linkedin_div, #github_div, #whatsapp_div, #mail_div{width: 17%;}
+  #github_div{margin-right: 7.5%;}
+  #whatsapp_num, #mail_txt{width: 100%;}
+  #occupation{padding-bottom: 2.5%;}
+  #personal_info > div >div> a > img{width: 100%;}
+}
+@media only screen and (max-width: 999px) and (min-width: 850px){
+  #occupation{padding-bottom:5%;}
+  #profile{width: 20%; margin-top: -6%; padding-left: 2.5%; padding-bottom: 2.5%;}
+  #personal_info > div > div > a > img{width: 55px;}
+}
+@media only screen and (max-width: 856px) and (min-width: 725px){
+  #occupation{padding-bottom:5%;}
+  #profile{width: 22.5%; margin-top: -6%; padding-left: 2.5%; padding-bottom: 2.5%;}
+  #personal_info > div > div > a > img{width: 50px;}
+}
+@media only screen and (max-width: 724px) and (min-width: 645px){
+  #occupation{padding-bottom:5%;}
+  #profile{width: 23.5%; margin-top: -6%; padding-left: 2.5%; padding-bottom: 2.5%;}
+  #personal_info > div > div > a > img{width: 48px;}
+}
+@media only screen and (max-width: 644px) and (min-width: 603px){
+  #profile{width: 26%; padding: 0% 2.5% 2.5% 2.5%;} /*top right bottom left*/
+  #personal_info > div > div > a > img{width: 51px;}
+  #personal_info{padding-top: 4%; padding-left: 2%;}
+  #whatsapp_div, #mail_div{padding-left: 10%;}
+}
+@media only screen and (max-width: 602px) and (min-width: 551px){
+  #personal > h2{padding-bottom: 1%;}
+  #profile{width: 31%; padding: 0% 2.5% 2.5% 2.5%;} /*top right bottom left*/
+  #personal_info > div > div > a > img{width: 49px;}
+  #personal_info{padding-top: 1%; padding-left: 2%;}
+  #whatsapp_div, #mail_div{padding-left: 10%;}
+}
+@media only screen and (max-width: 550px) and (min-width: 510px){
+  #personal > h2{padding-bottom: 1%;}
+  #profile{width: 30%; margin-top: -6%;}
+  #personal_info{padding-top: 2.5%;padding-left: 2%;}
+  #whatsapp_div, #mail_div{padding-left: 10%;}
+  #personal_info > div > div > a > img{width: 45px;}
+}
+@media only screen and (max-width: 509px) and (min-width: 430px){
+  #personal > h2{padding-bottom: 1%;}
+  #profile{width: 30%; }
+  #personal_info{padding-top: 2.5%;padding-left: 2%;}
+  #whatsapp_div, #mail_div{padding-left: 10%;}
+  #personal_info > div > div > a > img{width: 45px;}
+}
+@media only screen and (max-width: 429px) and (min-width: 375px){
+  #profile{width: 35%; padding-top: 2.5%;}
+  #personal_info{padding-top: 1%;padding-left: 1%;}
+  #personal_info > div > div > a > img{width: 42px;}
+}
+@media only screen and (max-width: 375px) and (min-width: 346px){
+  #profile{width: 36%; padding-top: 4.5%;}
+  #personal_info > div > div > a > img{width: 39px;}
+}
+@media only screen and (max-width: 345px){
+  #profile{width: 32%;}
+  #personal_info > div > div > a > img{width: 36.5px;}
+}
+
+
+/* EDUCATION BREAKPOINTS */
+@media screen and (max-width: 636px){
+  .date::after, .hyphen::after{
+    content: "\a";
+    white-space: pre;
+  }
+  .javascript::after{
+    content: "-\a";
+    white-space: pre;
+  }
+}
+@media only screen and (min-width: 460px){
+  .school>p, .job>p{padding-left: 10%;}
+}
+
+/* MOBILE */
+@media only screen and (max-width: 550px){
+  #personal, #my_education, #my_projects, #work{padding: 5% 3.5%;}
+
+  header, .header_a_wrapper > button{font-size: 100%}
+
+  h2{font-size: 150%;}
+  h3{font-size: 105%; padding-bottom: 3.5%;}
+
+  .game_control_div > button, #show_intreval_time, #game_explanation_div>button{font-size: 92.5%;}
+  #game_explanation_txt>p{font-size: 95%;}
+  #hide_game_explanation{font-size: 95%;}
+  #occupation{font-size: 110%;}
+  #personal_info > div > a{font-size: 90%; padding-left: 2%; word-break: break-all;}
+  #about_me{font-size: 100%;}
+
+  .job>div>p, .school>div>p, .job>p, .school>p{font-size: 100%;}
+  .project > div > p{font-size: 100%;}
+  #my_projects>p{font-size: 105%;}
+
+  /* WORKD EXPERIENCE AND EDUCATION */
+  .school, .job{padding: 8.5% 1% 0% 1%;}/*top right bottom left*/
+  .school, .job{grid-template-columns: 15vw auto;}
+  .school>div, .job>div{padding-left: 5%;}
+
+  /* PROJECTS */
+  .project{
+    grid-template-columns: 27vw auto;
+    padding: 3% 0%;
+  }
+  .lang{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  .project_txt > p{padding: 3.5% 0%;}
+  #my_projects > p{padding-top: 2.5%;}
+  #my_projects > div{padding: 5% 2.5% 0% 2.5%;}  /*top right bottom left*/
+}
+
+
+
+/* TABLET */
+@media print, screen and (max-width: 1050px) and (min-width: 551px){
+  #personal, #my_education, #my_projects, #work{padding: 4% 2%;}
+  header, .header_a_wrapper > button{font-size: 104%}
+  .game_control_div > button, #show_intreval_time, #game_explanation_div>button{font-size: 105%;}
+  h2{font-size: 230%;}
+  h3{font-size: 150%; padding-bottom: 1%;}
+  #game_explanation_txt>p{font-size: 110%;}
+  #hide_game_explanation{font-size: 120%;}
+  #occupation{font-size: 160%;}
+
+  #personal_info > div > a{font-size: 110%;}
+  #about_me{font-size: 110%;}
+
+  .job>div>p, .school>div>p, .job>p, .school>p{font-size: 115%;}
+  .project > div > p{font-size: 115%;}
+  #my_projects>p{font-size: 115%;}
+
+  /* WORK EXPERIENCE AND EDUCATION */
+  .school, .job{padding: 6% 2.5% 0% 2.5%} /*top right bottom left*/
+  .job{grid-template-columns: 18vw auto;}
+  .school{grid-template-columns: 20vw auto;}
+
+  /* PROJECTS */
+  .project{
+    grid-template-columns: 23vw auto;
+    padding: 1.25% 0%;
+  }
+  #my_projects > p{padding-top: 1%;}
+  .lang{padding-right: 10%;}
+  .project_txt > p{padding: 1.5% 0%;}
+  #my_projects > div{padding: 5% 2.5% 0% 2.5%;}  /*top right bottom left*/
+}
+
+
+
+/* DESKTOP */
+@media screen and (min-width: 1051px){
+  #personal, #my_education, #my_projects, #work{padding: 4% 2%;}
+  header, .header_a_wrapper > button{font-size: 100%}
+  .game_control_div > button, #show_intreval_time, #game_explanation_div>button{font-size: 100%;}
+  h2{font-size: 230%; padding-bottom: 1%;}
+  h3{font-size: 150%; padding-bottom: 1%;}
+  #game_explanation_txt>p{font-size: 110%;}
+  #hide_game_explanation{font-size: 120%;}
+  #occupation{font-size: 150%;}
+
+  #personal_info > div > a{font-size: 100%; padding-left: 2%;}
+  #about_me{font-size: 110%;}
+
+  .job>div>p, .school>div>p, .job>p, .school>p{font-size: 105%;}
+  .project > div > p{font-size: 105%;}
+  #my_projects>p{font-size: 115%;}
+
+  /* WORK EXPERIENCE AND EDUCATION */
+  .school, .job{padding: 3% 2.5% 0% 2.5%} /*top right bottom left*/
+  .job{grid-template-columns: 17vw auto;}
+  .school{grid-template-columns: 15vw auto;}
+
+  /* PROJECTS */
+  .project{
+    grid-template-columns: 20vw auto;
+    padding: 1% 0%;
+  }
+  #my_projects > p{padding-top: 1%;}
+  .lang{padding-right: 5%;}
+  .project_txt > p{padding: 0.35% 0%;}
+  #my_projects > div{padding: 3% 2.5% 0% 2.5%;  /*top right bottom left*/}
+}
+
+@media only print{
+  header{
+    position: static;
+  }
+  #personal, #my_education, #my_projects, #work{
+    overflow-y: visible;
+    clear: both;
+    page-break-after: always;
+  }
+  #game, #game_controls{display: none !important;}
+}
