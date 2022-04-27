@@ -58,9 +58,16 @@
   }
 }
 
-@media screen and (min-width: 1051px){
+@media screen and (max-width: 1700px) and (min-width: 1051px){
   .switch {
     width: 55px;
     height: 30px;
+  }
+}
+
+@media screen and (min-width: 1701px){
+  .switch {
+    width: 3.75vw;
+    height: 2vw;
   }
 }

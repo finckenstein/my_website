@@ -483,21 +483,6 @@
 /* DESKTOP */
 @media screen and (min-width: 1051px){
   #personal, #my_education, #my_projects, #work{padding: 4% 2%;}
-  header, .header_a_wrapper > button{font-size: 100%}
-  .game_control_div > button, #show_intreval_time, #game_explanation_div>button{font-size: 100%;}
-  h2{font-size: 230%; padding-bottom: 1%;}
-  h3{font-size: 150%; padding-bottom: 1%;}
-  #game_explanation_txt>p{font-size: 110%;}
-  #hide_game_explanation{font-size: 120%;}
-  #occupation{font-size: 150%;}
-
-  #personal_info > div > a{font-size: 100%; padding-left: 2%;}
-  #about_me{font-size: 110%;}
-
-  .job>div>p, .school>div>p, .job>p, .school>p{font-size: 105%;}
-  .project > div > p{font-size: 105%;}
-  #my_projects>p{font-size: 115%;}
-
   /* WORK EXPERIENCE AND EDUCATION */
   .school, .job{padding: 3% 2.5% 0% 2.5%} /*top right bottom left*/
   .job{grid-template-columns: 17vw auto;}
@@ -514,10 +499,44 @@
   #my_projects > div{padding: 3% 2.5% 0% 2.5%;  /*top right bottom left*/}
 }
 
+@media screen and (max-width: 1600px) and (min-width: 1051px){
+  #personal, #my_education, #my_projects, #work{padding: 4% 2%;}
+  header, .header_a_wrapper > button{font-size: 100%}
+  .game_control_div > button, #show_intreval_time, #game_explanation_div>button{font-size: 100%;}
+  h2{font-size: 230%; padding-bottom: 1%;}
+  h3{font-size: 150%; padding-bottom: 1%;}
+  #game_explanation_txt>p{font-size: 110%;}
+  #hide_game_explanation{font-size: 120%;}
+  #occupation{font-size: 150%;}
+
+  #personal_info > div > a{font-size: 100%; padding-left: 2%;}
+  #about_me{font-size: 110%;}
+
+  .job>div>p, .school>div>p, .job>p, .school>p{font-size: 105%;}
+  .project > div > p{font-size: 105%;}
+  #my_projects>p{font-size: 115%;}
+}
+
+@media screen and (min-width: 1601px){
+  header, .header_a_wrapper > button{font-size: 1.25vw;}
+  .game_control_div > button, #show_intreval_time, #game_explanation_div>button{font-size: 1.25vw;}
+  h2{font-size: 2vw; padding-bottom: 1%;}
+  h3{font-size: 1.85vw; padding-bottom: 1%;}
+  #game_explanation_txt>p{font-size: 1.25vw;}
+  #hide_game_explanation{font-size: 1.4vw;}
+  #occupation{font-size: 1.35vw;}
+
+  #personal_info > div > a{font-size: 1.25vw; padding-left: 2%;}
+  #about_me{font-size: 1.27vw;}
+
+  .job>div>p, .school>div>p, .job>p, .school>p{font-size: 1.23vw;}
+  .project > div > p{font-size: 1.23vw;}
+  #my_projects>p{font-size: 1.26vw;}
+}
+
+
 @media only print{
-  header{
-    position: static;
-  }
+  header{position: static;}
   #personal, #my_education, #my_projects, #work{
     overflow-y: visible;
     clear: both;

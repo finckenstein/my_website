@@ -20,11 +20,11 @@
   },
   "about":{
     "occupation": "Problem-Solver & Developer",
-    "statement": "My bachelor in Computer Science taught me to effectively analyze a wide variety of problems and use and develop technology to solve them. Hence, I consider myself a problem-solver and developer. I am keen to demonstrate this and apply my acquired hard skills in my employment. On a personal note, I like to get out of my comfort zone as often as possible to learn something new everyday."
+    "statement": "Welcome to my page! I graduated with a bachelor degrees in Computer science from the Vrije Universiteit Amsterdam on the 31st of October 2021 and I am currently looking for employment. Through my education and projects I learned computational thinking which enables the analysis of a wide variety of problems and to use and develop technology to solve them. Hence, I consider myself a problem-solver and developer. On a personal note, I like to get out of my comfort zone as often as possible to learn something new everyday."
   },
   "education":{
     "title": "Education",
-    "VU": "Bachelor Degree in Computer Science. Minored in 'Deep Programming'. For a complete list of grades, <a class='txt_link' href='documents/grade_list.pdf' target='_blank'>click here.</a>",
+    "VU": "Bachelor Degree in Computer Science with an average grade of 7.7/10. Minored in 'Deep Programming'. For a complete list of grades, <a class='txt_link' href='documents/grade_list.pdf' target='_blank'>click here.</a>",
     "markham": "(2015-2017) <a class='txt_link' href='documents/IB_diploma.pdf' target='_blank'>International Baccalaureate Diploma:</a> 35/40.<br> (2014-2015) Cambridge IGCSE"
   },
   "work":{

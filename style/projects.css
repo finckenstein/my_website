@@ -86,12 +86,21 @@
     padding-left: 10%;
   }
   #p_back > button{
-    font-size: 350%;
     width: 100%;
   }
   #project_txt{grid-area:2/2/3/3; padding-top:2.5%;}
   #project_title{padding-bottom: 1.5%;}
+}
+@media screen and (max-width: 1600px) and (min-width: 1051px){
+  #p_back > button{font-size: 350%;}
   h1{font-size: 220%;}
-  p{font-size: 110%;}
+  p, p>i{font-size: 110%;}
   .txt_link{font-size: 110%;}
+}
+
+@media screen and (min-width: 1601px){
+  #p_back > button{font-size: 5vw;}
+  h1{font-size: 2.25vw;}
+  p, p>i{font-size: 1.45vw;}
+  .txt_link{font-size: 1.45vw;}
 }

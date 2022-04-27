@@ -4,9 +4,11 @@ class GameBoard{
     this.game_board = document.getElementById("game_display");
     this.screen_height = Math.floor((window.innerHeight-(document.getElementById("header").clientHeight+document.getElementById("game_controls").clientHeight))/tmp_dim);
     this.screen_width =  Math.floor(window.innerWidth/tmp_dim);
-    if((this.screen_height+this.screen_width)>201){
-      this.screen_height = 100;
-      this.screen_width = 100;
+    if(this.screen_height > 125 &&(this.screen_height+this.screen_width)>250){
+      this.screen_height = 125;
+    }
+    if(this.screen_width > 120 &&(this.screen_height+this.screen_width)>250){
+      this.screen_width = 125;
     }
     if(this.screen_height < 14){this.screen_height = 13;}
     if(this.screen_width < 14){this.screen_width = 13;}
@@ -19,7 +21,8 @@ class GameBoard{
   get_div_dim(){
     if(window.matchMedia("(max-width: 550px)").matches){return 12.75;}
     else if(window.matchMedia("(max-width: 1050px) and (min-width: 551px)").matches){return 14;}
-    else{return 15;}
+    else if(window.matchMedia("(max-width: 1700px) and (min-width: 1051px)").matches){return 15;}
+    else{return 20;}
   }
 
   initialize(draw_starting_pattern, alive_cells){
@@ -160,22 +163,20 @@ class GameBoard{
 
   add_cells_on_resize(){
     pause_game();
-    if((this.screen_height+this.screen_width) >= 200){return;}
+    if((this.screen_height+this.screen_width) > 250){return;}
 
     let tmp_div_dim=Number(this.div_dim.substring(0,this.div_dim.length-2));
     let new_height=Math.floor((window.innerHeight-(document.getElementById("header").clientHeight+document.getElementById("game_controls").clientHeight))/tmp_div_dim);
     let new_width=Math.floor(window.innerWidth/tmp_div_dim);
     let alive_cells_on_old_board = this.get_all_alive_cells(false);
-    console.log(new_width, new_height);
 
-    if((new_height+new_width) > 200){
-      this.screen_height = 100;
-      this.screen_width = 100;
-    }
-    else{
-      this.screen_height = new_height;
-      this.screen_width = new_width;
-    }
+    if(this.screen_height > 125 &&(this.screen_height+this.screen_width)>250){this.screen_height = 125;}
+    else if(this.screen_height < 14){this.screen_height = 13;}
+    else{this.screen_height = new_height;}
+    if(this.screen_width > 120 &&(this.screen_height+this.screen_width)>250){this.screen_width = 125;}
+    else if(this.screen_width < 14){this.screen_width = 13;}
+    else{this.screen_width = new_width;}
+
     this.create_new_board(alive_cells_on_old_board);
     start_game();
   }
@@ -212,10 +213,7 @@ class GameBoard{
         }
       }
     }
-    if(data_to_post){
-      console.log("about to post data");
-      post_data(alive_cells);
-    }
+    if(data_to_post){post_data(alive_cells);}
     else{return alive_cells;}
   }
 
@@ -311,8 +309,6 @@ function get_data(board){
   var response_data;
   var xhr = new XMLHttpRequest();
   let file_name;
-  console.log(screen.width);
-  console.log(window.matchMedia("(max-height: 600px)").matches);
   if(window.matchMedia("(max-width: 290px)").matches){ // && window.matchMedia("(max-height: 760px)").matches
     file_name="no_walker_pattern.txt";
   }
