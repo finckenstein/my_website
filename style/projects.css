@@ -32,6 +32,7 @@
     justify-content: center;
     align-items: center;
   }
+  #project_txt{padding-bottom: 7.5%;}
   .txt_link{word-wrap: break-word;}
 }
 
@@ -54,7 +55,7 @@
   }
   h1{font-size: 150%; padding-bottom: 2.5%;}
   p{font-size: 105%;}
-  .txt_link{font-size: 105%;}
+  p>i, .txt_link{font-size: 100%;}
 }
 
 @media print, screen and (max-width: 1050px) and (min-width: 551px){
@@ -75,13 +76,13 @@
   #project_title{padding-bottom: 2.5%;}
   h1{font-size: 200%;}
   p{font-size: 115%;}
-  .txt_link{font-size: 115%;}
+  p>i, .txt_link{font-size: 100%;}
 }
 
 @media screen and (min-width: 1051px){
   #project{
     grid-template-columns: 7vw 86vw 7vw;
-    padding-top:2.5%;
+    padding-top:1%;
   }
   #p_back{
     grid-area: 1/1/2/2;
@@ -91,14 +92,14 @@
   #p_back > button{
     width: 100%;
   }
-  #project_txt{grid-area:2/2/3/3; padding-top:2.5%;}
+  #project_txt{grid-area:2/2/3/3; padding-top:1%;}
   #project_title{padding-bottom: 1.5%;}
 }
 @media screen and (max-width: 1600px) and (min-width: 1051px){
   #p_back > button{font-size: 350%;}
   h1{font-size: 220%;}
-  p, p>i{font-size: 110%;}
-  .txt_link{font-size: 110%;}
+  p{font-size: 110%;}
+  p>i, .txt_link{font-size: 100%;}
 }
 
 @media screen and (min-width: 1601px){

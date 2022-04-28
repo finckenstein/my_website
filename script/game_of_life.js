@@ -5,12 +5,8 @@ class GameBoard{
 
     this.screen_height = Math.floor((window.innerHeight-(document.getElementById("header").clientHeight+document.getElementById("game_controls").clientHeight))/tmp_dim);
     this.screen_width =  Math.floor(window.innerWidth/tmp_dim);
-    if(this.screen_height > 125 &&(this.screen_height+this.screen_width)>250){
-      this.screen_height = 125;
-    }
-    if(this.screen_width > 120 &&(this.screen_height+this.screen_width)>250){
-      this.screen_width = 125;
-    }
+    if(this.screen_height > 125 &&(this.screen_height+this.screen_width)>250){this.screen_height = 125;}
+    if(this.screen_width > 120 &&(this.screen_height+this.screen_width)>250){this.screen_width = 125;}
     if(this.screen_height < 14){this.screen_height = 13;}
     if(this.screen_width < 14){this.screen_width = 13;}
 
@@ -20,7 +16,7 @@ class GameBoard{
   }
 
   get_div_dim(){
-    if(window.matchMedia("(max-width: 550px)").matches){return 12.75;}
+    if(window.matchMedia("(max-width: 550px)").matches){return 13;}
     else if(window.matchMedia("(max-width: 1050px) and (min-width: 551px)").matches){return 14;}
     else if(window.matchMedia("(max-width: 1700px) and (min-width: 1051px)").matches){return 15;}
     else{return 20;}
@@ -55,12 +51,8 @@ class GameBoard{
         tmp_div.setAttribute("onclick", "change_background(this)");
         tmp_div.setAttribute("onmousemove", "change_background_mouse_down(this)");
 
-        if(alive_cells != null && (alive_cells.includes(x+" "+y))){
-          this.set_cell_alive(tmp_div);
-        }
-        else{
-          this.kill_cell(tmp_div);
-        }
+        if(alive_cells != null && (alive_cells.includes(x+" "+y))){this.set_cell_alive(tmp_div);}
+        else{this.kill_cell(tmp_div);}
         this.game_board.appendChild(tmp_div);
       }
     }
@@ -324,7 +316,7 @@ function get_data(board){
   if(window.matchMedia("(max-width: 290px)").matches){ // && window.matchMedia("(max-height: 760px)").matches
     file_name="no_walker_pattern.txt";
   }
-  else if(window.matchMedia("(max-width: 500px)").matches && window.matchMedia("(max-height: 500px)").matches){
+  else if(window.matchMedia("(max-width: 500px)").matches && window.matchMedia("(max-height: 900px)").matches){
     file_name="no_mid_pattern.txt";
   }
   else{

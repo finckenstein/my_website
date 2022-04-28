@@ -79,7 +79,7 @@
     <div class="placeholder" id="about_me"></div>
     <section id="personal" class="section_info">
       <h2>Leander Finckenstein</h2>
-      <div id="profile"><img id="profile_pic" src="documents/profile.jpg" alt="Profile" loading="lazy"></div>
+      <div id="profile"><div><img id="profile_pic" data-src="documents/profile.jpg" alt="Profile" loading="lazy"></div></div>
       <p id="occupation" data-localize="about.occupation"></p>
       </div>
       <div id="personal_info">
@@ -236,17 +236,24 @@
   var game_of_life = new GameLogic();
   var mouse_down = false;
   var drag_to_draw = true;
+
   var intreval_time = document.getElementById("intreval_time").value;
   var lazyloadImages = document.getElementsByClassName("p_img");
   let all_sections = document.getElementsByTagName("section");
   var gol = document.getElementById("game_display");
   var lazyloadThrottleTimeout;
   var start_game_timeout;
+
   document.addEventListener("DOMContentLoaded", function() {
     translate_txt();
-    document.getElementById("game_controls").style.width= (100-((document.getElementById("my_projects").offsetWidth - document.getElementById("my_projects").clientWidth)/100))+"%";
-    // Game of Life
 
+    document.getElementById("game_controls").style.width= (100-((document.getElementById("my_projects").offsetWidth - document.getElementById("my_projects").clientWidth)/100))+"%";
+    let profile = document.getElementById("profile_pic");
+    profile.setAttribute("src", profile.getAttribute("data-src"));
+    add_event_listener_to_load(profile);
+
+
+    // Game of Life
     document.getElementById("show_intreval_time").textContent = ((document.getElementById("intreval_time").value)/1000)+" sec";
     document.getElementById("game_display").onmousedown = ()=>{mouse_down = true;};
     document.getElementById("game_display").onmouseup = ()=>{mouse_down = false;}

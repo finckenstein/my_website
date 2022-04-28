@@ -220,7 +220,6 @@
     flex-direction: row-reverse;
     justify-content: center; /* align horizontal */
     align-items: center; /* align vertical */
-    padding: 2% 0%;
   }
   #show_intreval_time{padding-right: 5%;}
   #game_explanation_div{width: 17%;}
