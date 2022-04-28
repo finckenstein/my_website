@@ -2,6 +2,7 @@ class GameBoard{
   constructor(){
     let tmp_dim = this.get_div_dim();
     this.game_board = document.getElementById("game_display");
+
     this.screen_height = Math.floor((window.innerHeight-(document.getElementById("header").clientHeight+document.getElementById("game_controls").clientHeight))/tmp_dim);
     this.screen_width =  Math.floor(window.innerWidth/tmp_dim);
     if(this.screen_height > 125 &&(this.screen_height+this.screen_width)>250){
@@ -28,6 +29,16 @@ class GameBoard{
   initialize(draw_starting_pattern, alive_cells){
     this.divs_to_game_board(draw_starting_pattern, alive_cells);
     this.draw_grid();
+    if(window.matchMedia("(any-hover: none)").matches){
+      this.set_event_handlers_to_board();
+    }
+  }
+
+  set_event_handlers_to_board(){
+    this.game_board.addEventListener("wheel", function(e){
+      e.preventDefault();
+      e.stopPropagation();
+    });
   }
 
   divs_to_game_board(draw_starting_pattern, alive_cells){
@@ -156,6 +167,7 @@ class GameBoard{
     document.getElementById("game_display").remove();
     let new_game = document.createElement("div");
     new_game.setAttribute("id", "game_display");
+    new_game.setAttribute("ontouchmove", "register_move(event)");
     document.getElementById("game_display_div").appendChild(new_game);
     this.game_board = new_game;
     this.initialize(false, alive_cells_on_old_board);
@@ -332,7 +344,7 @@ function get_data(board){
 function post_data(coor_to_store){
   let xhr = new XMLHttpRequest();
   let method = 'POST';
-  xhr.open(method, "backend.php", true);
+  xhr.open(method, "gol_pattern/backend.php", true);
   xhr.setRequestHeader("Accept", "application/text");
   xhr.setRequestHeader("Content-Type", "application/text");
   xhr.onreadystatechange = function () {
@@ -344,13 +356,6 @@ function post_data(coor_to_store){
   xhr.send(coor_to_store);
 }
 
-var game_of_life = new GameLogic();
-
-var mouse_down = false;
-var drag_to_draw = true;
-var intreval_time = document.getElementById("intreval_time").value;
-document.getElementById("show_intreval_time").textContent = ((document.getElementById("intreval_time").value)/1000)+" sec";
-
 function start_game(){
   if(!game_of_life.intreval_id){
     change_opacity("0.5", "1", "1");
@@ -359,8 +364,8 @@ function start_game(){
 }
 
 function pause_game(){
-  change_opacity("1", "0.5", "1");
   if(game_of_life.intreval_id){
+    change_opacity("1", "0.5", "1");
     clearInterval(game_of_life.intreval_id);
   }
   game_of_life.intreval_id = null;
@@ -384,12 +389,14 @@ function change_background_mouse_down(selected_div){
   if (mouse_down){
     if(drag_to_draw){game_of_life.board.set_cell_alive(selected_div);}
     else{game_of_life.board.kill_cell(selected_div);}
+    document.getElementById("stop_game").style.opacity = "1";
   }
 }
 
 function change_background(selected_div){
   if (selected_div.getAttribute("data-is_alive") == 1){game_of_life.board.kill_cell(selected_div);}
   else{game_of_life.board.set_cell_alive(selected_div);}
+  document.getElementById("stop_game").style.opacity = "1";
 }
 
 function move_to_change(is_draw){
@@ -403,12 +410,6 @@ function move_to_change(is_draw){
   }
   drag_to_draw = is_draw;
 }
-
-document.getElementById("game_display").onmousedown = ()=>{mouse_down = true;};
-document.getElementById("game_display").onmouseup = ()=>{mouse_down = false;}
-
-document.getElementById("intreval_time").onmouseup = ()=>{change_display_of_range();};
-document.getElementById("intreval_time").ontouchend = ()=>{change_display_of_range();};
 
 function change_display_of_range(){
   pause_game();
@@ -439,8 +440,11 @@ function open_up_gol_info(){
 
 function register_move(e){
   let cell = document.elementFromPoint(e.touches[0].clientX, e.touches[0].clientY);
-  if(cell != null && cell.parentElement.id == "game_display"){
+  if(cell != null && (cell.parentElement.id == "game_display" || cell.parentElement.id == "game_display_div")){
+    e.preventDefault();
+    e.stopPropagation();
     if(drag_to_draw){game_of_life.board.set_cell_alive(cell);}
     else{game_of_life.board.kill_cell(cell);}
   }
+  document.getElementById("stop_game").style.opacity = "1";
 }

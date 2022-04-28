@@ -3,6 +3,8 @@
 <html lang="en">
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="ScreenOrientation" content="autoRotate:disabled">
+
     <link href='https://fonts.googleapis.com/css?family=Roboto Mono' rel='stylesheet'>
     <link rel="stylesheet" type="text/css" href="style/mode_switch.css">
     <link rel="stylesheet" type="text/css" href="style/projects.css">
@@ -32,11 +34,24 @@
 
 </html>
 
+<script src="script/translate.js"></script>
+<script src="script/change_mode.js"></script>
+
 <script type="text/javascript">
   let params = new URLSearchParams(document.location.search);
   let project = params.get("project");
   document.getElementById("project_title").setAttribute("data-localize", "single_project."+project+".title");
   document.getElementById("project_description").setAttribute("data-localize", "single_project."+project+".description");
+
+  translate_txt();
+  if(sessionStorage["current_mode"] == "white"){
+    change_mode_display("light");
+    change_color_of_page("black", sessionStorage["current_mode"]);
+  }
+  else{
+    change_mode_display("dark");
+    change_color_of_page("white", sessionStorage["current_mode"]);
+    document.getElementById("mode_input").checked = true;
+  }
+
 </script>
-<script src="script/translate.js"></script>
-<script src="script/change_mode.js"></script>

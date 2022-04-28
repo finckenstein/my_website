@@ -1,10 +1,3 @@
-var lazyloadImages = document.getElementsByClassName("p_img");
-let all_sections = document.getElementsByTagName("section");
-var gol = document.getElementById("game_display");
-var is_initial_scroll = true;
-var lazyloadThrottleTimeout;
-var start_game_timeout;
-
 function while_load(img){
   if(!img.complete){
     img.style.visibility = "hidden";
@@ -36,21 +29,10 @@ function width_change(){
   game_of_life.board.add_cells_on_resize();
 }
 
-document.addEventListener("scroll", scroll_change);
-window.addEventListener("resize", width_change);
-window.addEventListener("orientationChange", width_change);
-
 function get_complement_color(){
   if(sessionStorage["current_mode"] == "black"){return "white";}
   else{return "black";}
 }
-
-document.addEventListener("DOMContentLoaded", function() {
-  start_game_after_load();
-  generate_navbar();
-  set_background_of_header_to_section();
-  change_pages_dimensions();
-});
 
 function set_background_of_header_to_section(){
   function change_background_of_header_div(section_div){
@@ -76,7 +58,7 @@ function set_background_of_header_to_section(){
       }
     }
   }
-  var page_middle =  window.pageYOffset+(screen.height/2);
+  var page_middle =  window.pageYOffset+(window.outerHeight/2);
   for(let i=0; i<all_sections.length; ++i){
     if(page_middle > all_sections[i].offsetTop && page_middle < (all_sections[i].offsetTop+all_sections[i].clientHeight)){
       change_background_of_header_div(all_sections[i]);
@@ -97,23 +79,18 @@ function change_pages_dimensions(){
     change_heights_of(placeholders, placeholder_height+"px");
 
     let sections = document.getElementsByClassName("section_info");
-    let section_height = (screen.height - (2*placeholder_height));
+    let section_height = (window.outerHeight - (2*placeholder_height));
     change_heights_of(sections, section_height+"px");
 
     let controls_height = document.getElementById("game_controls").clientHeight;
-    let wrapper_height = screen.height-(placeholder_height+controls_height);
+    let wrapper_height = window.innerHeight-(placeholder_height+controls_height);
     document.getElementById("explanation_wrapper").style.height = wrapper_height+"px";
     document.getElementById("explanation_wrapper").style.top = placeholder_height+"px";
-  }
-  function width_of_game_controls(){
-    var scrollbar_width = document.getElementById("my_projects").offsetWidth - document.getElementById("my_projects").clientWidth;
-    document.getElementById("game_controls").style.width= (screen.width-scrollbar_width)+"px";
   }
   function height_of_game_div(){
     document.getElementById("game_display_div").style.height = window.innerHeight-(document.getElementById("header").clientHeight+document.getElementById("game_controls").clientHeight)+"px";
   }
   height_of_sections();
-  width_of_game_controls();
   height_of_game_div();
 }
 
@@ -126,7 +103,7 @@ function lazyload() {
 
       for(let i=0; i<lazyloadImages.length; ++i){
         let img = lazyloadImages[i];
-        if(img.offsetTop < (screen.height + scrollTop)) {
+        if(img.offsetTop < (window.outerHeight + scrollTop)) {
           let datasrc = img.dataset.src.split("_")[0];
           add_event_listener_to_load(img);
           img.src = datasrc+"_"+sessionStorage["current_mode"]+".png";
@@ -210,12 +187,4 @@ function get_parent_elem(img, parent_to_find){
     }
   }
   return parent_elem;
-}
-
-window.onclick = function(e) {
-  if(window.matchMedia("(max-width: 720px)").matches){
-    if(get_parent_elem(e.target, "#header") == null || get_parent_elem(e.target, ".header_a_wrapper") != null){
-      close_navbar(document.getElementById("navbar_symbol"));
-    }
-  }
 }

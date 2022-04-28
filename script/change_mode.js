@@ -1,13 +1,3 @@
-if(sessionStorage["current_mode"] == "white"){
-  change_mode_display("light");
-  change_color_of_page("black", sessionStorage["current_mode"]);
-}
-else{
-  change_mode_display("dark");
-  change_color_of_page("white", sessionStorage["current_mode"]);
-  document.getElementById("mode_input").checked = true;
-}
-
 function change_mode_display(mode){
   if(document.getElementById("display_mode") != null){document.getElementById("display_mode").remove();}
   let mode_display = document.createElement("p");
