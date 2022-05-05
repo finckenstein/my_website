@@ -9,7 +9,7 @@
   img{width: 100%;}
   p, h2{color: black;}
   section{border-top: solid thin black;}
-  button:hover{cursor: pointer;}
+  button:hover, #intreval_time{cursor: pointer;}
   /* HEADER */
   header{
     position:fixed;
@@ -92,7 +92,7 @@
   #game_explanation_txt{
     background-color: white;
     border: solid thin black;
-    overflow-y: scroll;
+    overflow-y: auto;
     z-index: 1;
   }
   #game_explanation_txt > div{
@@ -100,7 +100,13 @@
     flex-flow: row;
     justify-content: space-between;
   }
-  #hide_game_explanation{border-radius: 10%;}
+  #hide_game_explanation{
+    border-radius: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
 
 
   /* PROFILE */
@@ -138,7 +144,10 @@
   .project_txt{grid-area: 1/2/2/3;}
 
   #t_gol{cursor: pointer;}
-  #game_display_div{cursor:cell;}
+  #game_display_div{
+    overflow: hidden;
+    cursor:cell;
+  }
 }
 
 /* HEADER BREAKPOINTS */
@@ -177,7 +186,7 @@
 }
 @media print, screen and (min-width: 721px){
   header{
-    padding: 0.5% 0%;
+    padding: 0.6% 0%;
     display: grid;
     grid-template-columns: 83.34vw 16.66vw;
     grid-template-rows: auto;
@@ -197,10 +206,10 @@
   }
   #navbar_symbol_div{display: none;}
 }
-@media only screen and (max-width: 550px){
+@media only screen and (max-width: 560px){
   #navbar_symbol_div{width: 30%;}
 }
-@media only screen and (min-width: 551px){
+@media only screen and (min-width: 561px){
   #navbar_symbol_div{width: 20%;}
 }
 
@@ -210,9 +219,9 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    padding-bottom: 3.5%;
+    padding-bottom: 6%;
   }
-  #start_game, #pause_game, #stop_game, #draw_cells, #erase_cells, #game_explanation_div > button{padding: 4% 0%;}
+  #start_game, #pause_game, #stop_game, #draw_cells, #erase_cells, #game_explanation_div > button{padding: 5% 0%;}
   #start_game_div, #pause_game_div, #stop_game_div{width: 33.33%;}
   #draw_cells_div, #erase_cells_div{width: 50%;}
   #intreval_div{
@@ -253,14 +262,14 @@
     padding: 5%;
   }
   #hide_game_explanation{
-    width: 17%;
+    width: 16%;
     height: 11%;
   }
 }
 @media only screen and (min-width:676px){
   #game_explanation_txt{
     width: 80%;
-    height: 60%;
+    height: 74%;
     padding: 3%;
   }
   #hide_game_explanation{
@@ -353,7 +362,7 @@
 }
 @media only screen and (max-width: 602px) and (min-width: 551px){
   #personal > h2{padding-bottom: 1%;}
-  #profile{width: 31%; padding: 0% 2.5% 2.5% 2.5%;} /*top right bottom left*/
+  #profile{width: 31%; padding: 2.5% 2.5% 2.5% 2.5%;} /*top right bottom left*/
   #personal_info > div > div > a > img{width: 49px;}
   #personal_info{padding-top: 1%; padding-left: 2%;}
   #whatsapp_div, #mail_div{padding-left: 10%;}
@@ -367,13 +376,13 @@
 }
 @media only screen and (max-width: 509px) and (min-width: 430px){
   #personal > h2{padding-bottom: 1%;}
-  #profile{width: 30%; }
+  #profile{width: 30%; padding-top: 2.5%;}
   #personal_info{padding-top: 2.5%;padding-left: 2%;}
   #whatsapp_div, #mail_div{padding-left: 10%;}
   #personal_info > div > div > a > img{width: 45px;}
 }
 @media only screen and (max-width: 429px) and (min-width: 375px){
-  #profile{width: 35%; padding-top: 2.5%;}
+  #profile{width: 35%; padding-top: 3.75%;}
   #personal_info{padding-top: 1%;padding-left: 1%;}
   #personal_info > div > div > a > img{width: 42px;}
 }

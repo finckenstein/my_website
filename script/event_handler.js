@@ -34,6 +34,11 @@ function get_complement_color(){
   else{return "black";}
 }
 
+function get_header_color(div_color){
+  if(div_color == "white"){return "#EBEBEB";}
+  else if(div_color == "black"){return "#2A2A2A";}
+}
+
 function set_background_of_header_to_section(){
   function change_background_of_header_div(section_div){
     function change_background(header_div, btn_color, div_color, data_viewed_val){
@@ -44,7 +49,7 @@ function set_background_of_header_to_section(){
     function remove_background_of_not_viewed(header_viewed, header_div){
       for(let i=0; i<header_div.length; ++i){
         if(header_div[i] != header_viewed && header_div[i].getAttribute("data-is_viewed") == "1"){
-          change_background(header_div[i], get_complement_color(), sessionStorage["current_mode"], "0");
+          change_background(header_div[i], get_complement_color(), get_header_color(sessionStorage["current_mode"]), "0");
           break;
         }
       }

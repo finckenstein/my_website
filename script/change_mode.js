@@ -22,18 +22,18 @@ function change_txt_link(txt_color){
 function change_index_page(txt_color, background_color){
 
   function change_header(){
-
     let header = document.getElementById("header");
     header.style.borderBottom = "solid "+txt_color+" thin";
-    header.style.backgroundColor = background_color;
+    let header_color = get_header_color(background_color);
 
+    header.style.backgroundColor = header_color;
     let header_div = document.getElementsByClassName("header_a_wrapper");
     for(let i=0;i<header_div.length; ++i){
       if(header_div[i].getAttribute("data-is_viewed") == "1"){
         header_div[i].style.backgroundColor = txt_color;
         header_div[i].firstElementChild.style.color = background_color;
       }
-      else{header_div[i].style.backgroundColor = background_color;}
+      else{header_div[i].style.backgroundColor = header_color;}
       if(window.matchMedia("(max-width: 720px)").matches){
         header_div[i].style.borderTop = "solid "+txt_color+" thin";
       }
@@ -91,8 +91,18 @@ function change_index_page(txt_color, background_color){
   }
 
   function general_changes(){
+    let holder_color;
+    if(background_color=="white"){holder_color="#2B5A85";}
+    else{holder_color="#10263b";}
+
+    let placeholders = document.getElementsByClassName("placeholder");
+    for(let i=0; i<placeholders.length; ++i){placeholders[i].style.backgroundColor = holder_color;}
+
     let sec = document.getElementsByTagName("section");
-    for(let i=0; i<sec.length; ++i){sec[i].style.borderTop = "solid "+txt_color+" thin";}
+    for(let i=0; i<sec.length; ++i){
+      sec[i].style.borderTop = "solid "+txt_color+" thin";
+      sec[i].style.borderBottom = "solid "+txt_color+" thin";
+    }
 
     document.getElementById("body_of_all").style.backgroundColor = background_color;
     document.querySelectorAll('[data-localize]').forEach(elem => {elem.style.color = txt_color;});

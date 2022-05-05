@@ -69,7 +69,7 @@
         <div class="game_control_div" id="erase_cells_div"><button class="btn_border" id="erase_cells" onclick="move_to_change(false)" data-localize="game.delete"></button></div>
         <!-- <button class="btn_border" onclick="take_screen_shot()">Screen Shot</button> -->
         <div id="intreval_div">
-          <input id="intreval_time" type="range" min="50" max="1000" value="100" class="slider"></input>
+          <input id="intreval_time" type="range" min="50" max="1000" value="125" class="slider"></input>
           <p id="show_intreval_time">0.1 sec</p>
         </div>
         <div id="game_explanation_div"><button class="btn_border" id="game_explanation" onclick="show_game_explanation()">?</button></div>
@@ -79,7 +79,7 @@
     <div class="placeholder" id="about_me"></div>
     <section id="personal" class="section_info">
       <h2>Leander Finckenstein</h2>
-      <div id="profile"><div><img id="profile_pic" data-src="documents/profile.jpg" alt="Profile" loading="lazy"></div></div>
+      <div id="profile"><div><img id="profile_pic" src="documents/profile.jpg" alt="Profile" loading="lazy"></div></div>
       <p id="occupation" data-localize="about.occupation"></p>
       </div>
       <div id="personal_info">
@@ -233,6 +233,7 @@
   document.addEventListener('visibilitychange', function (event) {
     if (document.visibilityState === 'hidden'){pause_game();}
   });
+
   var game_of_life = new GameLogic();
   var mouse_down = false;
   var drag_to_draw = true;
@@ -248,9 +249,6 @@
     translate_txt();
 
     document.getElementById("game_controls").style.width= (100-((document.getElementById("my_projects").offsetWidth - document.getElementById("my_projects").clientWidth)/100))+"%";
-    let profile = document.getElementById("profile_pic");
-    profile.setAttribute("src", profile.getAttribute("data-src"));
-    add_event_listener_to_load(profile);
 
 
     // Game of Life

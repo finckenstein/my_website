@@ -16,9 +16,9 @@ class GameBoard{
   }
 
   get_div_dim(){
-    if(window.matchMedia("(max-width: 550px)").matches){return 13;}
-    else if(window.matchMedia("(max-width: 1050px) and (min-width: 551px)").matches){return 14;}
-    else if(window.matchMedia("(max-width: 1700px) and (min-width: 1051px)").matches){return 15;}
+    if(window.matchMedia("(max-width: 550px)").matches){return 14;}
+    else if(window.matchMedia("(max-width: 1050px) and (min-width: 551px)").matches){return 14.5;}
+    else if(window.matchMedia("(max-width: 1700px) and (min-width: 1051px)").matches){return 15.5;}
     else{return 20;}
   }
 
@@ -166,6 +166,7 @@ class GameBoard{
   }
 
   add_cells_on_resize(){
+    let tmp_id=game_of_life.intreval_id;
     pause_game();
     if((this.screen_height+this.screen_width) > 250){return;}
 
@@ -182,7 +183,7 @@ class GameBoard{
     else{this.screen_width = new_width;}
 
     this.create_new_board(alive_cells_on_old_board);
-    start_game();
+    if(tmp_id){start_game();}
   }
 
   reset(){
@@ -379,16 +380,20 @@ function change_opacity(o_start, o_pause, o_stop){
 
 function change_background_mouse_down(selected_div){
   if (mouse_down){
-    if(drag_to_draw){game_of_life.board.set_cell_alive(selected_div);}
+    if(drag_to_draw){
+      game_of_life.board.set_cell_alive(selected_div);
+      document.getElementById("stop_game").style.opacity = "1";
+    }
     else{game_of_life.board.kill_cell(selected_div);}
-    document.getElementById("stop_game").style.opacity = "1";
   }
 }
 
 function change_background(selected_div){
   if (selected_div.getAttribute("data-is_alive") == 1){game_of_life.board.kill_cell(selected_div);}
-  else{game_of_life.board.set_cell_alive(selected_div);}
-  document.getElementById("stop_game").style.opacity = "1";
+  else{
+    game_of_life.board.set_cell_alive(selected_div);
+    document.getElementById("stop_game").style.opacity = "1";
+  }
 }
 
 function move_to_change(is_draw){
@@ -435,8 +440,10 @@ function register_move(e){
   if(cell != null && (cell.parentElement.id == "game_display" || cell.parentElement.id == "game_display_div")){
     e.preventDefault();
     e.stopPropagation();
-    if(drag_to_draw){game_of_life.board.set_cell_alive(cell);}
+    if(drag_to_draw){
+      game_of_life.board.set_cell_alive(cell);
+      document.getElementById("stop_game").style.opacity = "1";
+    }
     else{game_of_life.board.kill_cell(cell);}
   }
-  document.getElementById("stop_game").style.opacity = "1";
 }

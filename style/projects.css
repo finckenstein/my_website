@@ -46,7 +46,7 @@
   }
   #p_back > button{
     font-size: 300%;
-    width: 35%;
+    width: 27.5%;
   }
   #project_txt{grid-area:2/1/3/3; padding: 5% 5%;}
   .mode_switch_wrapper{
@@ -60,7 +60,7 @@
 
 @media print, screen and (max-width: 1050px) and (min-width: 551px){
   #project{
-    grid-template-columns: 7vw 86vw 7vw;
+    grid-template-columns: 10vw 83vw 7vw;
     padding-top:2.5%;
   }
   #p_back{
