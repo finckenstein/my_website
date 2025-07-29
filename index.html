@@ -8,31 +8,37 @@
     <link rel="stylesheet" type="text/css" href="style/mode_switch.css">
     <link rel="stylesheet" type="text/css" href="style/index.css">
 
-    <script src="script/jquery_backup/jquery-1.11.0.min.js"></script>
-    <script src="script/jquery_backup/jquery_localize.js"></script>
+    <script src="script/language/jquery_backup/jquery-1.11.0.min.js"></script>
+    <script src="script/language/jquery_backup/jquery_localize.js"></script>
     <link rel="shortcut icon" href="#">
 
     <title>Leander Finckenstein</title>
     <link href="documents/my_web_icon.png" rel="icon">
+    <script src="script/game_of_life/gameui.js?v=1"></script>
+    <script src="script/game_of_life/board.js?v=1"></script>
+    <script src="script/game_of_life/logic.js?v=1"></script>
+    <script src="script/event_handler.js?v=1"></script>
+    <script src="script/language/translate.js?v=1"></script>
+    <script src="script/change_mode.js?v=1"></script>
 
-  </head>
+</head>
 
     <header id="header">
       <div id="header_div">
         <div class="header_a_wrapper" data-is_viewed="0" data-section_id="game">
-          <button onclick="jump_to('game_of_life')" data-localize="header.game"></button>
+          <button id="game_jump" data-localize="header.game"></button>
         </div>
         <div class="header_a_wrapper" data-is_viewed="0" data-section_id="personal">
-          <button onclick="jump_to('about_me')" data-localize="header.about"></button>
-        </div>
-        <div class="header_a_wrapper" data-is_viewed="0" data-section_id="my_education">
-          <button onclick="jump_to('education')" data-localize="header.education"></button>
+          <button id="personal_jump" data-localize="header.about"></button>
         </div>
         <div class="header_a_wrapper" data-is_viewed="0" data-section_id="work">
-          <button onclick="jump_to('work_experience')" data-localize="header.work"></button>
+          <button id="work_jump" data-localize="header.work"></button>
+        </div>
+        <div class="header_a_wrapper" data-is_viewed="0" data-section_id="my_education">
+          <button id="my_education_jump" data-localize="header.education"></button>
         </div>
         <div class="header_a_wrapper" data-is_viewed="0" data-section_id="my_projects">
-          <button onclick="jump_to('projects')" data-localize="header.projects"></button>
+          <button id="my_projects_jump" data-localize="header.projects"></button>
         </div>
       </div>
 
@@ -52,7 +58,7 @@
       <div id="game_explanation_txt">
         <div>
           <h2 data-localize="game.explanation.title"></h3>
-          <button class="btn_border" id="hide_game_explanation" onclick="hide_game_explanation()">X</button>
+          <button class="btn_border" id="hide_game_explanation">X</button>
         </div>
         <p data-localize="game.explanation.description"></p>
       </div>
@@ -60,19 +66,19 @@
 
     <div class='placeholder' id="game_of_life"></div>
     <section id="game">
-      <div id="game_display_div"><div id="game_display" ontouchmove="register_move(event)"></div></div>
+      <div id="game_display_div"><div id="game_display"></div></div>
       <div id="game_controls">
-        <div class="game_control_div" id="start_game_div"><button class="btn_border" id="start_game" onclick="start_game()" data-localize="game.start"></button></div>
-        <div class="game_control_div" id="pause_game_div"><button class="btn_border" id="pause_game" onclick="pause_game()" data-localize="game.pause"></button></div>
-        <div class="game_control_div" id="stop_game_div"><button class="btn_border" id="stop_game" onclick="stop_game()" data-localize="game.stop"></button></div>
-        <div class="game_control_div" id="draw_cells_div"><button class="btn_border" id="draw_cells" onclick="move_to_change(true)" data-localize="game.draw"></button></div>
-        <div class="game_control_div" id="erase_cells_div"><button class="btn_border" id="erase_cells" onclick="move_to_change(false)" data-localize="game.delete"></button></div>
+        <div class="game_control_div" id="start_game_div"><button class="btn_border" id="start_game" data-localize="game.start"></button></div>
+        <div class="game_control_div" id="pause_game_div"><button class="btn_border" id="pause_game" data-localize="game.pause"></button></div>
+        <div class="game_control_div" id="stop_game_div"><button class="btn_border" id="stop_game" data-localize="game.stop"></button></div>
+        <div class="game_control_div" id="draw_cells_div"><button class="btn_border" id="draw_cells" data-localize="game.draw"></button></div>
+        <div class="game_control_div" id="erase_cells_div"><button class="btn_border" id="erase_cells" data-localize="game.delete"></button></div>
         <!-- <button class="btn_border" onclick="take_screen_shot()">Screen Shot</button> -->
         <div id="intreval_div">
           <input id="intreval_time" type="range" min="50" max="1000" value="125" class="slider"></input>
           <p id="show_intreval_time">0.1 sec</p>
         </div>
-        <div id="game_explanation_div"><button class="btn_border" id="game_explanation" onclick="show_game_explanation()">?</button></div>
+        <div id="game_explanation_div"><button class="btn_border" id="game_explanation">?</button></div>
       </div>
     </section>
 
@@ -83,14 +89,37 @@
       <p id="occupation" data-localize="about.occupation"></p>
       </div>
       <div id="personal_info">
-        <div id="whatsapp_div"><div><a href="https://api.whatsapp.com/send?phone=4915253011101" target="_blank"><img id="whatsapp" class="p_img" data-src="documents/whatsapp_white.png" alt="whatsapp" loading="lazy"></a></div></div>
-        <div id="whatsapp_num"><a href="https://api.whatsapp.com/send?phone=4915253011101" target="_blank">+49-1525-3011101</a></div>
         <div id="mail_div"><div><a href="mailto:leander.finck@gmail.com"><img id="mail" class="p_img" data-src="documents/mail_white.png" alt="mail" loading="lazy"></a></div></div>
         <div id="mail_txt"><a href="mailto:leander.finck@gmail.com">leander.finck@gmail.com</a></div>
-        <div id="github_div"><div><a href="https://github.com/leanderFinck1999" target="_blank"><img id="github" class="p_img" data-src="documents/github_white.png" alt="github" loading="lazy"></a></div></div>
+        <div id="github_div"><div><a href="https://github.com/finckenstein" target="_blank"><img id="github" class="p_img" data-src="documents/github_white.png" alt="github" loading="lazy"></a></div></div>
         <div id="linkedin_div"><div><a href="https://www.linkedin.com/in/leander-finckenstein-0920971b5/" target="_blank"><img id="linkedin" class="p_img" data-src="documents/linkedin_white.png" alt="linkedin" loading="lazy"></a></div></div>
       </div>
       <p id="about_me_txt" data-localize="about.statement"></p>
+    </section>
+    <div class="placeholder" id="work_experience"></div>
+    <section id="work" class="section_info">
+      <h2 data-localize="work.title"></h2>
+      <div class="job">
+        <p data-localize="work.self-employed.time"></p>
+        <div>
+          <h3 data-localize="work.self-employed.title"></h3>
+          <p data-localize="work.self-employed.description"></p>
+        </div>
+      </div>
+      <div class="job">
+        <p data-localize="work.accenture.time"></p>
+        <div>
+          <h3 data-localize="work.accenture.title"></h3>
+          <p data-localize="work.accenture.description"></p>
+        </div>
+      </div>
+      <div class="job">
+        <p data-localize="work.TA.time"></p>
+        <div>
+          <h3 data-localize="work.TA.title"></h3>
+          <p data-localize="work.TA.description"></p>
+        </div>
+      </div>
     </section>
 
     <div class="placeholder" id="education"></div>
@@ -114,26 +143,6 @@
         <p><span class='date'>2007</span><span class='hyphen'>-</span><span class='date'>2014</span></p>
         <div>
           <h3><a href="https://www.mis-munich.de/" target="_blank">Munich International School</a></h3>
-        </div>
-      </div>
-    </section>
-
-    <div class="placeholder" id="work_experience"></div>
-    <section id="work" class="section_info">
-      <h2 data-localize="work.title"></h2>
-      <div class="job">
-        <p data-localize="work.rally.time"></p>
-        <div>
-          <h3 data-localize="work.rally.title"></h3>
-          <p data-localize="work.rally.description"></p>
-        </div>
-      </div>
-
-      <div class="job">
-        <p data-localize="work.TA.time"></p>
-        <div>
-          <h3 data-localize="work.TA.title"></h3>
-          <p data-localize="work.TA.description"></p>
         </div>
       </div>
     </section>
@@ -207,7 +216,7 @@
             <p><span class='date'><span class="javascript">Java</span>Script, </span><span class='date'>HTML, </span><span class='date'>CSS</span></p>
           </div>
           <div class="project_txt">
-            <p id="t_gol" onclick="open_up_gol_info()" data-localize="projects.t_gol"></p>
+            <p id="t_gol" data-localize="projects.t_gol"></p>
           </div>
         </div>
 
@@ -223,70 +232,80 @@
     </section>
 
   </body>
-  <script src="script/game_of_life.js?v=1"></script>
-  <script src="script/event_handler.js?v=1"></script>
-  <script src="script/translate.js?v=1"></script>
-  <script src="script/change_mode.js?v=1"></script>
 
   <script type="text/javascript">
 
-  document.addEventListener('visibilitychange', function (event) {
-    if (document.visibilityState === 'hidden'){pause_game();}
-  });
+    window.addEventListener("DOMContentLoaded", function() {
+      translate_txt();
+      
+      // Touch move on game display
+      document.getElementById("game_display")?.addEventListener("touchmove", function(event) {
+        if (mouse_down && drag_to_draw) {
+          document.gol_game_ui.register_move(event);
+        }
+      });
+      // Pauses game when 
+      document.addEventListener('visibilitychange', function (event) {
+        if (document.visibilityState === 'hidden'){document.gol_game_ui.pause_game();}
+      });
 
-  var game_of_life = new GameLogic();
-  var mouse_down = false;
-  var drag_to_draw = true;
+      // Game of Life
+      document.gol_game_ui = new GameUI();
 
-  var intreval_time = document.getElementById("intreval_time").value;
-  var lazyloadImages = document.getElementsByClassName("p_img");
-  let all_sections = document.getElementsByTagName("section");
-  var gol = document.getElementById("game_display");
-  var lazyloadThrottleTimeout;
-  var start_game_timeout;
+      document.getElementById("game_controls").style.width= (100-((document.getElementById("my_projects").offsetWidth - document.getElementById("my_projects").clientWidth)/100))+"%";
 
-  document.addEventListener("DOMContentLoaded", function() {
-    translate_txt();
+      document.getElementById("start_game")?.addEventListener("click", () => {document.gol_game_ui.start_game();});
+      document.getElementById("pause_game")?.addEventListener("click", () => {document.gol_game_ui.pause_game();});
+      document.getElementById("stop_game")?.addEventListener("click", () => {document.gol_game_ui.stop_game();});
+      document.getElementById("draw_cells")?.addEventListener("click", () => {document.gol_game_ui.move_to_change(true);});
+      document.getElementById("erase_cells")?.addEventListener("click", () => {document.gol_game_ui.move_to_change(false);});
+      document.getElementById("t_gol")?.addEventListener("click", () => {document.gol_game_ui.open_up_gol_info();});
+      document.getElementById("game_explanation_div")?.addEventListener("click", () => {document.gol_game_ui.show_game_explanation();});
+      document.getElementById("hide_game_explanation")?.addEventListener("click", () => {document.gol_game_ui.hide_game_explanation();});
 
-    document.getElementById("game_controls").style.width= (100-((document.getElementById("my_projects").offsetWidth - document.getElementById("my_projects").clientWidth)/100))+"%";
+      document.getElementById("show_intreval_time").textContent = ((document.getElementById("intreval_time").value)/1000)+" sec";
+      
+      document.getElementById("game_display").onmousedown = ()=>{document.gol_game_ui.set_mouse_down(true);};
+      document.getElementById("game_display").onmouseup = ()=>{document.gol_game_ui.set_mouse_down(false);}
 
+      document.getElementById("intreval_time").onmouseup = ()=>{document.gol_game_ui.change_display_of_range();};
+      document.getElementById("intreval_time").ontouchend = ()=>{document.gol_game_ui.change_display_of_range();};
 
-    // Game of Life
-    document.getElementById("show_intreval_time").textContent = ((document.getElementById("intreval_time").value)/1000)+" sec";
-    document.getElementById("game_display").onmousedown = ()=>{mouse_down = true;};
-    document.getElementById("game_display").onmouseup = ()=>{mouse_down = false;}
+      document.gol_game_ui.start_game_after_load();
 
-    document.getElementById("intreval_time").onmouseup = ()=>{change_display_of_range();};
-    document.getElementById("intreval_time").ontouchend = ()=>{change_display_of_range();};
+      // Functionality of
+      document.portfolio_functionality = new PortfolioFunctionality();
+      document.addEventListener("scroll", document.portfolio_functionality.scroll_change());
+      window.addEventListener("resize", document.portfolio_functionality.width_change());
 
-    // event handlers
-    start_game_after_load();
-    generate_navbar();
-    set_background_of_header_to_section();
-    change_pages_dimensions();
+      document.getElementById("game_jump")?.addEventListener("click", () => {document.portfolio_functionality.jump_to('game_of_life');});
+      document.getElementById("personal_jump")?.addEventListener("click", () => {document.portfolio_functionality.jump_to('about_me');});
+      document.getElementById("work_jump")?.addEventListener("click", () => {document.portfolio_functionality.jump_to('work_experience');});
+      document.getElementById("my_education_jump")?.addEventListener("click", () => {document.portfolio_functionality.jump_to('education');});
+      document.getElementById("my_projects_jump")?.addEventListener("click", () => {document.portfolio_functionality.jump_to('projects');});
 
-    document.addEventListener("scroll", scroll_change);
-    window.addEventListener("resize", width_change);
-
-    window.onclick = function(e) {
-      if(window.matchMedia("(max-width: 720px)").matches){
-        if(get_parent_elem(e.target, "#header") == null || get_parent_elem(e.target, ".header_a_wrapper") != null){
-          close_navbar(document.getElementById("navbar_symbol"));
+      window.onclick = function(e) {
+        if(window.matchMedia("(max-width: 720px)").matches){
+          if(
+              document.portfolio_functionality.get_parent_elem(e.target, "#header") == null || 
+              document.portfolio_functionality.get_parent_elem(e.target, ".header_a_wrapper") != null
+            ){
+            document.portfolio_functionality.close_navbar(document.getElementById("navbar_symbol"));
+          }
         }
       }
-    }
 
-    //change_mode
-    if(sessionStorage["current_mode"] == "white"){
-      change_mode_display("light");
-      change_color_of_page("black", sessionStorage["current_mode"]);
-    }
-    else{
-      change_mode_display("dark");
-      change_color_of_page("white", sessionStorage["current_mode"]);
-      document.getElementById("mode_input").checked = true;
-    }
-  });
+      //change_mode
+      if(sessionStorage["current_mode"] == "white"){
+        change_mode_display("light");
+        change_color_of_page("black", sessionStorage["current_mode"]);
+      }
+      else{
+        change_mode_display("dark");
+        change_color_of_page("white", sessionStorage["current_mode"]);
+        document.getElementById("mode_input").checked = true;
+      }
+    });
 
   </script>
 </html>

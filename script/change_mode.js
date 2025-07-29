@@ -1,3 +1,16 @@
+class ThemeSwitch{
+  constructor(){
+    this.mode = sessionStorage["current_mode"] || "white";
+    this.init();
+  }
+
+  init(){
+    this.change_mode_display(this.mode);
+    this.change_color_of_page(this.mode, this.mode === "white" ? "black" : "white");
+    sessionStorage["current_mode"] = this.mode;
+  }
+}
+
 function change_mode_display(mode){
   if(document.getElementById("display_mode") != null){document.getElementById("display_mode").remove();}
   let mode_display = document.createElement("p");
@@ -24,7 +37,7 @@ function change_index_page(txt_color, background_color){
   function change_header(){
     let header = document.getElementById("header");
     header.style.borderBottom = "solid "+txt_color+" thin";
-    let header_color = get_header_color(background_color);
+    let header_color = document.portfolio_functionality.get_header_color(background_color);
 
     header.style.backgroundColor = header_color;
     let header_div = document.getElementsByClassName("header_a_wrapper");
@@ -64,7 +77,7 @@ function change_index_page(txt_color, background_color){
       buttons[i].style.border = "solid "+txt_color+" thin";
     }
 
-    game_of_life.board.change_color_of_cells(txt_color, background_color);
+    document.gol_game_ui.board.change_color_of_cells(txt_color, background_color);
     change_controls_btn_backgrouncolor(txt_color);
 
     document.getElementById("game_explanation_txt").style.backgroundColor = background_color;
@@ -79,10 +92,8 @@ function change_index_page(txt_color, background_color){
       else{attr = "data-src";}
       let src = img.getAttribute(attr).split("/")[1].split("_")[0];
       img.setAttribute(attr, "documents/"+src+"_"+background_color+".png");
-      img.addEventListener('loadstart', while_load(img));
-      img.onload = function(){after_load(img);}
+      img.onload = function(){document.portfolio_functionality.after_load(img);}
     }
-    change_img("whatsapp");
     change_img("mail");
     change_img("github");
     change_img("linkedin");

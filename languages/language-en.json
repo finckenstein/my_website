@@ -20,25 +20,30 @@
   },
   "about":{
     "occupation": "Problem-Solver & Developer",
-    "statement": "Welcome to my page! I graduated with a Bachelor Degrees in Computer Science from the Vrije Universiteit Amsterdam end of 2021 and I am currently looking for employment. I was educated in computational thinking which enables the analysis of a wide variety of problems and to use and develop technology to solve them. Hence, I consider myself a problem-solver and developer. I am fluent in German, English and Spanish. On a personal note, I like to get out of my comfort zone as often as possible to learn something new everyday."
-  },
-  "education":{
-    "title": "Education",
-    "VU": "Bachelor Degree in Computer Science with an average grade of 7.7/10. Minored in 'Deep Programming'. For a complete list of grades, <a class='txt_link' href='documents/grade_list.pdf' target='_blank'>click here.</a>",
-    "markham": "(2015-2017) <a class='txt_link' href='documents/IB_diploma.pdf' target='_blank'>International Baccalaureate Diploma:</a> 35/45.<br> (2014-2015) Cambridge IGCSE"
+    "statement": "My experience in Full-Stack development (primarily in Python, Javascript & PostgreSQL), in addition to my expertise and proficiency in architecting technology solutions, has allowed me to consult my clients on their needs and implement their requests. To ensure successful collaboration and project execution, soft skills such as clear and effective communication, are just as important as technical abilities."
   },
   "work":{
     "title":"Work Experience",
-    "rally":{
-      "time":"<span class='date'>2019</span><span class='hyphen'>-</span><span class='date'>2022</span>",
-      "title":"Freelance Web Developer for the Tour Bavaria Rally",
-      "description":"<strong>Responsibilities:</strong> I built and continue to update the <a class='txt_link' href='https://tourbavaria.com' target='_blank'>tourbavaria.com</a>."
+    "self-employed":{
+      "time":"<span class='date'>2024</span><span class='hyphen'>-</span><span class='date'>current</span><br><span class='date'>April</span>",
+      "title":"Self-employed",
+      "description":"<strong>Responsibilities:</strong> The ambition is to advise on and implement digital transformations."
+    },
+    "accenture":{
+      "time":"<span class='date'>2022</span><span class='hyphen'>-</span><span class='date'>2024</span><br><span class='date'>Sep</span><span class='hyphen'>-</span><span class='date'>March</span>",
+      "title":"Custom Software Engineering Associate at Accenture Technology Solution",
+      "description":"<strong>Responsibilities:</strong> The project I was assigned to, was at the cyber protection department at a large german financial institute, working with Python and the different SQL's to advance and maintain the the vulnerability management procedures, to stay compliant with regulatory requirements."
     },
     "TA":{
       "time":"<span class='date'>2021<br></span><span class='date'>Feb</span><span class='hyphen'>-</span><span class='date'>June</span>",
       "title":"Teaching Assistant for the Software Design course (XB_40007) at the Vrije Universiteit Amsterdam",
       "description":"<strong>Responsibilities:</strong> I had weekly meetings with groups to discuss their UML diagrams and the design patterns used in their software projects. The groups had to program the card game 'Exploding Kittens' and write a report describing their software through UML diagrams and elaborate upon the design patterns they used."
     }
+  },
+  "education":{
+    "title": "Education",
+    "VU": "Bachelor Degree in Computer Science with an average grade of 7.7/10. Minored in 'Deep Programming'. For a complete list of grades, <a class='txt_link' href='documents/grade_list.pdf' target='_blank'>click here.</a>",
+    "markham": "(2015-2017) <a class='txt_link' href='documents/IB_diploma.pdf' target='_blank'>International Baccalaureate Diploma:</a> 35/45.<br> (2014-2015) Cambridge IGCSE"
   },
   "projects":{
     "title":"Projects worth Mentioning",
