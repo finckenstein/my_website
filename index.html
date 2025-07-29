@@ -235,39 +235,34 @@
 
   <script type="text/javascript">
 
-    window.addEventListener("DOMContentLoaded", function() {
+    document.addEventListener("DOMContentLoaded", function() {
       translate_txt();
       
-      // Touch move on game display
-      document.getElementById("game_display")?.addEventListener("touchmove", function(event) {
-        if (mouse_down && drag_to_draw) {
-          document.gol_game_ui.register_move(event);
-        }
-      });
-      // Pauses game when 
-      document.addEventListener('visibilitychange', function (event) {
-        if (document.visibilityState === 'hidden'){document.gol_game_ui.pause_game();}
-      });
-
       // Game of Life
       document.gol_game_ui = new GameUI();
+
+      // Touch move on game display
+      document.getElementById("game_display")?.addEventListener("touchmove", () =>{
+        document.gol_game_ui.register_move(event);
+      });
 
       document.getElementById("game_controls").style.width= (100-((document.getElementById("my_projects").offsetWidth - document.getElementById("my_projects").clientWidth)/100))+"%";
 
       document.getElementById("start_game")?.addEventListener("click", () => {document.gol_game_ui.start_game();});
       document.getElementById("pause_game")?.addEventListener("click", () => {document.gol_game_ui.pause_game();});
       document.getElementById("stop_game")?.addEventListener("click", () => {document.gol_game_ui.stop_game();});
-      document.getElementById("draw_cells")?.addEventListener("click", () => {document.gol_game_ui.move_to_change(true);});
-      document.getElementById("erase_cells")?.addEventListener("click", () => {document.gol_game_ui.move_to_change(false);});
+      document.getElementById("draw_cells")?.addEventListener("mousedown", () => {document.gol_game_ui.move_to_change(true);});
+      document.getElementById("erase_cells")?.addEventListener("mousedown", () => {document.gol_game_ui.move_to_change(false);});
       document.getElementById("t_gol")?.addEventListener("click", () => {document.gol_game_ui.open_up_gol_info();});
       document.getElementById("game_explanation_div")?.addEventListener("click", () => {document.gol_game_ui.show_game_explanation();});
       document.getElementById("hide_game_explanation")?.addEventListener("click", () => {document.gol_game_ui.hide_game_explanation();});
 
-      document.getElementById("show_intreval_time").textContent = ((document.getElementById("intreval_time").value)/1000)+" sec";
+      debugger;
+      document.getElementById("game_display")?.addEventListener("mousedown", () => {document.gol_game_ui.set_mouse_down(true);});
+      document.getElementById("game_display")?.addEventListener("mouseup", () => {document.gol_game_ui.set_mouse_down(false);});
       
-      document.getElementById("game_display").onmousedown = ()=>{document.gol_game_ui.set_mouse_down(true);};
-      document.getElementById("game_display").onmouseup = ()=>{document.gol_game_ui.set_mouse_down(false);}
 
+      document.getElementById("show_intreval_time").textContent = ((document.getElementById("intreval_time").value)/1000)+" sec";
       document.getElementById("intreval_time").onmouseup = ()=>{document.gol_game_ui.change_display_of_range();};
       document.getElementById("intreval_time").ontouchend = ()=>{document.gol_game_ui.change_display_of_range();};
 
@@ -275,8 +270,8 @@
 
       // Functionality of
       document.portfolio_functionality = new PortfolioFunctionality();
-      document.addEventListener("scroll", document.portfolio_functionality.scroll_change());
-      window.addEventListener("resize", document.portfolio_functionality.width_change());
+      document.addEventListener("scroll", document.portfolio_functionality.scroll_change.bind(document.portfolio_functionality));
+      document.addEventListener("resize", document.portfolio_functionality.width_change.bind(document.portfolio_functionality));
 
       document.getElementById("game_jump")?.addEventListener("click", () => {document.portfolio_functionality.jump_to('game_of_life');});
       document.getElementById("personal_jump")?.addEventListener("click", () => {document.portfolio_functionality.jump_to('about_me');});

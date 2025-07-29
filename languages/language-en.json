@@ -1,11 +1,12 @@
-{"header": {
-  "game":"Game Of Life",
-  "about":"About Me",
-  "education":"Education",
-  "work":"Work Experience",
-  "projects":"Projects",
-  "dark":"Dark Mode",
-  "light":"Light Mode"
+{
+  "header": {
+    "game":"Game Of Life",
+    "about":"About Me",
+    "education":"Education",
+    "work":"Work Experience",
+    "projects":"Projects",
+    "dark":"Dark Mode",
+    "light":"Light Mode"
   },
   "game":{
     "start":"Start",
@@ -20,7 +21,7 @@
   },
   "about":{
     "occupation": "Problem-Solver & Developer",
-    "statement": "My experience in Full-Stack development (primarily in Python, Javascript & PostgreSQL), in addition to my expertise and proficiency in architecting technology solutions, has allowed me to consult my clients on their needs and implement their requests. To ensure successful collaboration and project execution, soft skills such as clear and effective communication, are just as important as technical abilities."
+    "statement": "My experience in developing digital applications, along with my expertise and ability to successfully implement and deploy them online, enables me to realize projects in a holistic way. For successful collaboration and project execution, soft skills such as clear and effective communication are just as important as technical abilities."
   },
   "work":{
     "title":"Work Experience",

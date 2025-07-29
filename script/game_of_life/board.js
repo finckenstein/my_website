@@ -34,9 +34,11 @@ class GameBoard{
     if(this.screen_width < 14){this.screen_width = 13;}
 
     this.mouse_down = false;
-    this.drag_to_draw;
+    this.drag_to_draw = true;
     this.div_dim = tmp_dim+"px";
     this.div_attribute = "data-is_alive";
+    
+    debugger;
     this.#initialize(true, null);
   }
   #initialize(draw_starting_pattern, alive_cells){
@@ -65,8 +67,8 @@ class GameBoard{
         cell_div.style.height = this.div_dim;
         cell_div.setAttribute("id", x+" "+y);
 
-        cell_div.addEventListener("click", () => this.change_background(cell_div));
         cell_div.addEventListener("mousemove", () => this.change_background_mouse_down(cell_div));
+        cell_div.addEventListener("click", () => this.change_background(cell_div));
 
         if(alive_cells != null && (alive_cells.includes(x+" "+y))){this.set_cell_alive(cell_div);}
         else{this.kill_cell(cell_div);}
@@ -204,7 +206,7 @@ class GameBoard{
     document.getElementById("game_display").remove();
     let new_game = document.createElement("div");
     new_game.setAttribute("id", "game_display");
-    new_game.addEventListener("touchmove", (e) => document.gol_game_ui.register_move(e));
+    new_game.addEventListener("touchmove", (e) => this.register_move(e));
     document.getElementById("game_display_div").appendChild(new_game);
     this.game_board = new_game;
     this.#initialize(false, alive_cells_on_old_board);
@@ -281,6 +283,7 @@ class GameBoard{
     }
   }
   set_mouse_down(mouse_down){
+    debugger;
     this.mouse_down = mouse_down;
   }
   get_div_dim(){
@@ -293,6 +296,19 @@ class GameBoard{
     return this.drag_to_draw;
   }
   set_drag_to_draw(is_draw){
+    debugger;
     this.drag_to_draw = is_draw;
+  }
+  register_move(e){
+    let cell = document.elementFromPoint(e.touches[0].clientX, e.touches[0].clientY);
+    if(cell != null && (cell.parentElement.id == "game_display" || cell.parentElement.id == "game_display_div")){
+      e.preventDefault();
+      e.stopPropagation();
+      if(this.drag_to_draw){
+        this.set_cell_alive(cell);
+        document.getElementById("stop_game").style.opacity = "1";
+      }
+      else{this.kill_cell(cell);}
+    }
   }
 }

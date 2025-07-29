@@ -87,6 +87,7 @@ class PortfolioFunctionality{
       navbar_img.addEventListener("click", () => this.#open_navbar(img));
     }
   #generate_navbar() {
+    debugger;
     if (window.matchMedia("(max-width: 720px)").matches) {
       this.#create_mobile_navbar();
     }
@@ -102,6 +103,7 @@ class PortfolioFunctionality{
     img.addEventListener("click", () => this.close_navbar(img));
   }
   width_change(){
+    debugger;
     this.#generate_navbar();
     this.#set_background_of_header_to_section();
     this.#change_pages_dimensions();

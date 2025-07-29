@@ -38,20 +38,11 @@ class GameUI{
   }
 
   register_move(e){
-    debugger
-    let cell = document.elementFromPoint(e.touches[0].clientX, e.touches[0].clientY);
-    if(cell != null && (cell.parentElement.id == "game_display" || cell.parentElement.id == "game_display_div")){
-      e.preventDefault();
-      e.stopPropagation();
-      if(this.board.get_drag_to_draw()){
-        this.board.set_cell_alive(cell);
-        document.getElementById("stop_game").style.opacity = "1";
-      }
-      else{this.board.kill_cell(cell);}
-    }
+    return this.board.register_move(e);
   }
 
   change_display_of_range(){
+    debugger;
     this.pause_game();
     this.intreval_time = document.getElementById("intreval_time").value;
     this.start_game();
@@ -85,6 +76,15 @@ class GameUI{
   }
 
   start_game_after_load() {setTimeout(() => {this.start_game()}, 1000);}
+
+  set_mouse_down(mouse_down){
+    debugger;
+    this.board.set_mouse_down(mouse_down);
+  }
+
+  get_mouse_down(){
+    return this.board.get_mouse_down();
+  }
 }
 
 
