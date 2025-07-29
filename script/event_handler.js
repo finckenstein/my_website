@@ -66,7 +66,6 @@ class PortfolioFunctionality{
     let opposite_color = this.#get_complement_color()
     var page_middle =  window.pageYOffset+(window.outerHeight/2);
     var all_sections = document.getElementsByTagName("section");
-    debugger
     for(let i=0; i<all_sections.length; ++i){
       if(page_middle > all_sections[i].offsetTop && page_middle < (all_sections[i].offsetTop+all_sections[i].clientHeight)){
         change_background_of_header_div(all_sections[i]);

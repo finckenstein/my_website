@@ -89,10 +89,10 @@
       <p id="occupation" data-localize="about.occupation"></p>
       </div>
       <div id="personal_info">
-        <div id="mail_div"><div><a href="mailto:leander.finck@gmail.com"><img id="mail" class="p_img" data-src="documents/mail_white.png" alt="mail" loading="lazy"></a></div></div>
+        <div id="mail_div"><div><a href="mailto:leander.finck@gmail.com"><object id="mail" class="svg_icons" data="documents/mail_white.svg" type="image/svg+xml"></a></div></div>
         <div id="mail_txt"><a href="mailto:leander.finck@gmail.com">leander.finck@gmail.com</a></div>
-        <div id="github_div"><div><a href="https://github.com/finckenstein" target="_blank"><img id="github" class="p_img" data-src="documents/github_white.png" alt="github" loading="lazy"></a></div></div>
-        <div id="linkedin_div"><div><a href="https://www.linkedin.com/in/leander-finckenstein-0920971b5/" target="_blank"><img id="linkedin" class="p_img" data-src="documents/linkedin_white.png" alt="linkedin" loading="lazy"></a></div></div>
+        <div id="github_div"><div><a href="https://github.com/finckenstein" target="_blank"><img id="github" class="svg_icons" src="documents/github_white.png" alt="github"></a></div></div>
+        <div id="linkedin_div"><div><a href="https://www.linkedin.com/in/leander-finckenstein-0920971b5/" target="_blank"><img id="linkedin" class="svg_icons" src="documents/linkedin_white.png" alt="linkedin"></a></div></div>
       </div>
       <p id="about_me_txt" data-localize="about.statement"></p>
     </section>
@@ -257,7 +257,6 @@
       document.getElementById("game_explanation_div")?.addEventListener("click", () => {document.gol_game_ui.show_game_explanation();});
       document.getElementById("hide_game_explanation")?.addEventListener("click", () => {document.gol_game_ui.hide_game_explanation();});
 
-      debugger;
       document.getElementById("game_display")?.addEventListener("mousedown", () => {document.gol_game_ui.set_mouse_down(true);});
       document.getElementById("game_display")?.addEventListener("mouseup", () => {document.gol_game_ui.set_mouse_down(false);});
       

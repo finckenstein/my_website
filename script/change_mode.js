@@ -86,18 +86,16 @@ function change_index_page(txt_color, background_color){
 
   function change_about_me_section(){
     function change_img(id){
-      let img = document.getElementById(id);
-      let attr;
-      if (img.getAttribute("src") != null){attr = "src";}
-      else{attr = "data-src";}
-      let src = img.getAttribute(attr).split("/")[1].split("_")[0];
-      img.setAttribute(attr, "documents/"+src+"_"+background_color+".png");
-      img.onload = function(){document.portfolio_functionality.after_load(img);}
+      let obj = document.getElementById(id);
+      let src = obj.getAttribute("data").split("/")[1].split("_")[0];
+      obj.setAttribute("data", "documents/"+src+"_"+background_color+".svg");
     }
-    change_img("mail");
-    change_img("github");
-    change_img("linkedin");
-    change_img("navbar_symbol");
+    debugger;
+
+    var svg_icons = document.getElementsByClassName("svg_icons");
+    for (let i=0; i<svg_icons.length; ++i){
+      change_img(svg_icons[i].id);
+    }
     document.getElementById("profile_pic").style.border = "solid "+txt_color;
   }
 

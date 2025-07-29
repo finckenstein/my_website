@@ -38,7 +38,6 @@ class GameBoard{
     this.div_dim = tmp_dim+"px";
     this.div_attribute = "data-is_alive";
     
-    debugger;
     this.#initialize(true, null);
   }
   #initialize(draw_starting_pattern, alive_cells){
