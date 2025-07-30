@@ -90,7 +90,6 @@ function change_index_page(txt_color, background_color){
       let src = obj.getAttribute("data").split("/")[1].split("_")[0];
       obj.setAttribute("data", "documents/"+src+"_"+background_color+".svg");
     }
-    debugger;
 
     var svg_icons = document.getElementsByClassName("svg_icons");
     for (let i=0; i<svg_icons.length; ++i){
