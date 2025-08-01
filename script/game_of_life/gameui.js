@@ -42,7 +42,6 @@ class GameUI{
   }
 
   change_display_of_range(){
-    debugger;
     this.pause_game();
     this.intreval_time = document.getElementById("intreval_time").value;
     this.start_game();
@@ -78,7 +77,6 @@ class GameUI{
   start_game_after_load() {setTimeout(() => {this.start_game()}, 1000);}
 
   set_mouse_down(mouse_down){
-    debugger;
     this.board.set_mouse_down(mouse_down);
   }
 

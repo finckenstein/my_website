@@ -282,7 +282,6 @@ class GameBoard{
     }
   }
   set_mouse_down(mouse_down){
-    debugger;
     this.mouse_down = mouse_down;
   }
   get_div_dim(){
@@ -295,7 +294,6 @@ class GameBoard{
     return this.drag_to_draw;
   }
   set_drag_to_draw(is_draw){
-    debugger;
     this.drag_to_draw = is_draw;
   }
   register_move(e){

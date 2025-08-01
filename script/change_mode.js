@@ -87,8 +87,8 @@ function change_index_page(txt_color, background_color){
   function change_about_me_section(){
     function change_img(id){
       let obj = document.getElementById(id);
-      let src = obj.getAttribute("data").split("/")[1].split("_")[0];
-      obj.setAttribute("data", "documents/"+src+"_"+background_color+".svg");
+      let src = obj.getAttribute("src").split("/")[1].split("_")[0];
+      obj.setAttribute("src", "documents/"+src+"_"+background_color+".svg");
     }
 
     var svg_icons = document.getElementsByClassName("svg_icons");
