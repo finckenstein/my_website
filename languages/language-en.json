@@ -20,14 +20,14 @@
     }
   },
   "about":{
-    "occupation": "Problem-Solver & Developer",
-    "statement": "My experience in developing digital applications, along with my expertise and ability to successfully implement and deploy them online, enables me to realize projects in a holistic way. For successful collaboration and project execution, soft skills such as clear and effective communication are just as important as technical abilities."
+    "occupation": "Consultant on and Developer of Digital Processes",
+    "statement": "My experience in developing digital applications, along with my expertise and ability to successfully implement and deploy them online, enables me to realize projects from start to finish. For successful collaboration and project execution, soft skills such as clear and effective communication are just as important as technical abilities."
   },
   "work":{
     "title":"Work Experience",
     "self-employed":{
       "time":"<span class='date'>2024</span><span class='hyphen'>-</span><span class='date'>current</span><br><span class='date'>April</span>",
-      "title":"Self-employed",
+      "title":"Consulting on and Implementation of digital processes (Self-Employed)",
       "description":"<strong>Responsibilities:</strong> The ambition is to advise on and implement digital transformations."
     },
     "accenture":{

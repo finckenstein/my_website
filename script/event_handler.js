@@ -79,8 +79,8 @@ class PortfolioFunctionality{
     document.getElementById("navbar_symbol").style.display = "inline";
 
     let navbar_img = document.getElementById("navbar_symbol");
-    navbar_img.setAttribute("data", "documents/navbarsymbol_"+sessionStorage["current_mode"]+".svg");
-    navbar_img.addEventListener("click", () => this.#open_navbar(img));
+    navbar_img.setAttribute("src", "documents/navbarsymbol_"+sessionStorage["current_mode"]+".svg");
+    navbar_img.addEventListener("click", () => this.#open_navbar(navbar_img));
   }
   #generate_navbar() {
     if (window.matchMedia("(max-width: 720px)").matches) {
@@ -117,7 +117,7 @@ class PortfolioFunctionality{
   }
   close_navbar(img){
     document.getElementById("header_div").style.display ="none";
-    img.setAttribute("src", "documents/navbarsymbol_"+sessionStorage["current_mode"]+".png");
+    img.setAttribute("src", "documents/navbarsymbol_"+sessionStorage["current_mode"]+".svg");
     img.addEventListener("click", () => this.#open_navbar(img));
   }
   get_parent_elem(img, parent_to_find){
