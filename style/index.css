@@ -123,12 +123,6 @@
 
 
   /* ======================== WORK EXPERIENCE AND EDUCATION ======================== */
-  .school, .job{
-    display: grid;
-    grid-template-rows: auto;
-  }
-  .school > p, .job > p{grid-area: 1/1/2/2;}
-  .school > div, .job > div{grid-area: 1/2/2/3;}
   .school > div > p > a, .job > div > p > a{text-decoration: underline;}
 
 
@@ -344,25 +338,9 @@
   #personal_info > div > div > a > img{width: 36.5px;}
 }
 
-
-/* ======================== EDUCATION BREAKPOINTS ======================== */
-@media only screen and (max-width: 636px){
-  .date::after, .hyphen::after{
-    content: "\a";
-    white-space: pre;
-  }
-  .javascript::after{
-    content: "-\a";
-    white-space: pre;
-  }
-}
-@media print, screen and (min-width: 460px){
-  .school>p, .job>p{padding-left: 10%;}
-}
-
 /* ======================== MOBILE ======================== */
 @media only screen and (max-width: 550px){
-  #personal, #my_education, #my_projects, #work{padding: 5% 3.5%;}
+  #personal, #my_education, #my_projects, #work{padding: 5% 1.5%;}
   header, .header_a_wrapper > button{font-size: 100%}
   h2{font-size: 160%;}
   h3{font-size: 120%; padding-bottom: 1.5%;}
@@ -374,14 +352,12 @@
   #personal_info > div > a{font-size: 90%; padding-left: 2%; word-break: break-all;}
   #about_me_txt{font-size: 100%;}
 
-  .job>div>p, .school>div>p, .job>p, .school>p{font-size: 100%;}
+  .job>div>p, .school>div>p, .job>p, .school>p{font-size: 16px;}
   .project > div > p{font-size: 100%;}
   #my_projects>p{font-size: 105%;}
 
   /* ======================== WORKD EXPERIENCE AND EDUCATION ======================== */
   .school, .job{padding: 8.5% 1% 5% 1%;}/*top right bottom left*/
-  .school, .job{grid-template-columns: 15vw auto;}
-  .school>div, .job>div{padding-left: 5%;}
 
   /* ======================== PROJECTS ======================== */
   .project{
@@ -420,8 +396,6 @@
 
   /* ======================== WORK EXPERIENCE AND EDUCATION ======================== */
   .school, .job{padding: 6% 2.5% 3% 2.5%} /*top right bottom left*/
-  .job{grid-template-columns: 18vw auto;}
-  .school{grid-template-columns: 20vw auto;}
 
   /* ======================== PROJECTS ======================== */
   .project{
@@ -439,10 +413,8 @@
 /* ======================== DESKTOP ======================== */
 @media screen and (min-width: 1051px){
   #personal, #my_education, #my_projects, #work{padding: 4% 2%;}
-  /* WORK EXPERIENCE AND EDUCATION */
-  .school, .job{padding: 3% 2.5% 3% 2.5%} /*top right bottom left*/
-  .job{grid-template-columns: 17vw auto;}
-  .school{grid-template-columns: 15vw auto;}
+  /* ======================== WORK EXPERIENCE AND EDUCATION ======================== */
+  .school, .job{padding: 2% 1.5% 2% 1.5%; } /*top right bottom left*/
 
   /* ======================== PROJECTS ======================== */
   .project{
@@ -468,7 +440,7 @@
   #personal_info > div > a{font-size: 100%; padding-left: 2%;}
   #about_me_txt{font-size: 110%;}
 
-  .job>div>p, .school>div>p, .job>p, .school>p{font-size: 105%;}
+  .job>div>p, .school>div>p, .school>p{font-size: 17px;}
   .project > div > p{font-size: 105%;}
   #my_projects>p{font-size: 115%;}
 }
@@ -485,7 +457,7 @@
   #personal_info > div > a{font-size: 1.25vw; padding-left: 2%;}
   #about_me_txt{font-size: 1.27vw;}
 
-  .job>div>p, .school>div>p, .job>p, .school>p{font-size: 1.23vw;}
+  .job>div>ul, .school>div>p, .job>div>p, .school>p{font-size: 1.23vw;}
   .project > div > p{font-size: 1.23vw;}
   #my_projects>p{font-size: 1.26vw;}
 }

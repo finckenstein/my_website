@@ -106,24 +106,24 @@
     <section id="work" class="section_info">
       <h2 data-localize="work.title"></h2>
       <div class="job">
-        <p data-localize="work.self-employed.time"></p>
-        <div>
-          <h3 data-localize="work.self-employed.title"></h3>
-          <p data-localize="work.self-employed.description"></p>
+        <div class="job_time"><p data-localize="work.self_employed.time"></p></div>
+        <div class="job_experience">
+          <h3 data-localize="work.self_employed.title"></h3>
+          <ul class="work_description" id="self_employed_description"></ul>
         </div>
       </div>
       <div class="job">
-        <p data-localize="work.accenture.time"></p>
-        <div>
+        <div class="job_time"><p data-localize="work.accenture.time"></p></div>
+        <div class="job_experience">
           <h3 data-localize="work.accenture.title"></h3>
-          <p data-localize="work.accenture.description"></p>
+          <ul class="work_description" id="accenture_description"></ul>
         </div>
       </div>
       <div class="job">
-        <p data-localize="work.TA.time"></p>
-        <div>
-          <h3 data-localize="work.TA.title"></h3>
-          <p data-localize="work.TA.description"></p>
+        <div class="job_time"><p data-localize="work.vu_teaching_assistant.time"></p></div>
+        <div class="job_experience">
+          <h3 data-localize="work.vu_teaching_assistant.title"></h3>
+          <ul class="work_description" id="ta_description"></ul>
         </div>
       </div>
     </section>
@@ -132,14 +132,14 @@
     <section id="my_education" class="section_info">
       <h2 data-localize="education.title"></h2>
       <div class="school">
-        <p><span class='date'>2018</span><span class='hyphen'>-</span><span class='date'>2021</span></p>
+        <p><i>2018-2021</p></i></p>
         <div>
           <h3><a href="https://vu.nl/en/education/bachelor/computer-science" target="_blank">Vrije Universiteit Amsterdam</a></h3>
           <p data-localize="education.VU"></p>
         </div>
       </div>
       <div class="school">
-        <p><span class='date'>2014</span><span class='hyphen'>-</span><span class='date'>2017</span></p>
+        <p><i>2014-2017</i></p>
         <div>
           <h3><a href="https://www.markham.edu.pe/" target="_blank">Markham College</a></h3>
           <p data-localize="education.markham"></p>
@@ -236,7 +236,20 @@
   <script type="text/javascript">
 
     document.addEventListener("DOMContentLoaded", function() {
-      translate_txt();
+      debugger;
+      add_work_experience().then(() => {
+        translate_txt(); 
+        //change_mode
+        if(sessionStorage["current_mode"] == "white"){
+          change_mode_display("light");
+          change_color_of_page("black", sessionStorage["current_mode"]);
+        }
+        else{
+          change_mode_display("dark");
+          change_color_of_page("white", sessionStorage["current_mode"]);
+          document.getElementById("mode_input").checked = true;
+        }
+      });
       
       // Game of Life
       document.gol_game_ui = new GameUI();
@@ -287,17 +300,6 @@
             document.portfolio_functionality.close_navbar(document.getElementById("navbar_symbol"));
           }
         }
-      }
-
-      //change_mode
-      if(sessionStorage["current_mode"] == "white"){
-        change_mode_display("light");
-        change_color_of_page("black", sessionStorage["current_mode"]);
-      }
-      else{
-        change_mode_display("dark");
-        change_color_of_page("white", sessionStorage["current_mode"]);
-        document.getElementById("mode_input").checked = true;
       }
     });
 
