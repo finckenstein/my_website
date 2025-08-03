@@ -15,13 +15,12 @@ class PortfolioFunctionality{
           class_elem[i].style.height = height_px;
         }
       }
-
       let placeholders = document.getElementsByClassName("placeholder");
       let placeholder_height = document.getElementById("header").clientHeight;
       change_heights_of(placeholders, placeholder_height+"px");
 
       let sections = document.getElementsByClassName("section_info");
-      let section_height = (window.outerHeight - (2*placeholder_height));
+      let section_height = window.innerHeight - document.getElementById("header").clientHeight;
       change_heights_of(sections, section_height+"px");
 
       let controls_height = document.getElementById("game_controls").clientHeight;

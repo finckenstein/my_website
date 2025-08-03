@@ -196,7 +196,7 @@
   #header_div{
     grid-area:1/1/2/2;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: center;
   }
   .header_a_wrapper{height: 100%;}
@@ -290,7 +290,7 @@
   #occupation{ padding-bottom: 7.5%; }
   #about_me_txt{ padding-top: 7.5%; }
 }
-@media only screen and (min-width:800px){
+@media only screen and (min-width:950px){
   #occupation{ padding-bottom:5%; }
   #profile{
     width: 17.5%;
@@ -306,7 +306,7 @@
   }
   #about_me_txt{padding-right: 5%; padding-top: 3.5%;}
 }
-@media only screen and (max-width: 799px) and (min-width: 600px){
+@media only screen and (max-width: 949px) and (min-width: 600px){
   #personal_info > div > div > a > img{width: 55px;}
   #profile{width: 22.5%; margin-top: -6%; padding-left: 2.5%; padding-bottom: 2.5%;}
 }

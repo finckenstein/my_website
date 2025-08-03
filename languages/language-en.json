@@ -4,7 +4,6 @@
     "about":"About Me",
     "education":"Education",
     "work":"Work Experience",
-    "projects":"Projects",
     "dark":"Dark Mode",
     "light":"Light Mode"
   },
@@ -28,6 +27,7 @@
     "self-employed":{
       "time":"<span class='date'>2024</span><span class='hyphen'>-</span><span class='date'>current</span><br><span class='date'>April</span>",
       "title":"Consulting on and Implementation of digital processes (Self-Employed)",
+      
       "description":"<strong>Responsibilities:</strong> The ambition is to advise on and implement digital transformations."
     },
     "accenture":{
@@ -47,7 +47,7 @@
     "markham": "(2015-2017) <a class='txt_link' href='documents/IB_diploma.pdf' target='_blank'>International Baccalaureate Diploma:</a> 35/45.<br> (2014-2015) Cambridge IGCSE"
   },
   "projects":{
-    "title":"Projects worth Mentioning",
+    "title":"University projects worth Mentioning",
     "txt":"Click on the projects below for more information.",
     "t_bachelor":"My Bachelor Project: The KitchenTools Knowledge Base",
     "t_singing_robot":"A Singing Robot",
