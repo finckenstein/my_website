@@ -356,7 +356,7 @@
   .project > div > p{font-size: 100%;}
   #my_projects>p{font-size: 105%;}
 
-  /* ======================== WORKD EXPERIENCE AND EDUCATION ======================== */
+  /* ======================== WORK EXPERIENCE AND EDUCATION ======================== */
   .school, .job{padding: 8.5% 1% 5% 1%;}/*top right bottom left*/
 
   /* ======================== PROJECTS ======================== */
@@ -412,9 +412,11 @@
 
 /* ======================== DESKTOP ======================== */
 @media screen and (min-width: 1051px){
-  #personal, #my_education, #my_projects, #work{padding: 4% 2%;}
   /* ======================== WORK EXPERIENCE AND EDUCATION ======================== */
-  .school, .job{padding: 2% 1.5% 2% 1.5%; } /*top right bottom left*/
+  .job{padding: 2% 1.5% 2% 1.5%; } /*top right bottom left*/
+  .school{padding-bottom: 2%;}
+  #my_education > div {padding: 2%;}
+
 
   /* ======================== PROJECTS ======================== */
   .project{

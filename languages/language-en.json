@@ -29,15 +29,13 @@
       "title":"Consulting on and Implementation of digital processes (Self-Employed)",
       "experiences":{ 
         "1": {
-          "title":"<strong>Cyber Protection Consultant for a financial institution:</strong>",
-          "time": "<i>2024-curr. June</i>",
+          "title":"<strong>Cyber Protection Consultant for a financial institution: </strong> <i>(2024 June - current)</i>",
           "responsibiliites":{
-            "1": "As tech-lead of the external-developers, we implemented a new vulnerability management system used within the corporation, for which we conceptualized an optimized database schema in PostgreSQL and programmed several python & groovy scripts, that in conjunction operate the new vulnerability management."
+            "1": "As tech-lead of the external-developers, we developed the new vulnerability management system used within the financial institution. To do so, we conceptualized an optimized database schema in PostgreSQL and programmed several python & groovy scripts, that in conjunction operate the new vulnerability management."
           }
         },
         "2": {
-          "title":"<strong>Full-Stack developer of a Flask web-app for a Leadership Coach:</strong>",
-          "time": "<i>2025-current Jan.</i>",
+          "title":"<strong>Full-Stack developer of a Flask web-app for a Leadership Coach: </strong> <i>(2025 January - current)</i>",
           "responsibiliites":{
             "1": "Manage the production environment and add several new features, e.g.,:",
             "2": "Added a portal for client administrators to manage the quizzes, answers and participants. Focus was to reuse existing code (in the frontend and backend) and ensure routes were protected appropriately.",
@@ -45,15 +43,14 @@
           }
         },
         "3": {
-          "title":"<strong>Co-founding CTO of real-estate aggregator startup:</strong>",
-          "time": "<i>2024 Jan-June</i>",
+          "title":"<strong>Co-founding CTO of real-estate aggregator startup: </strong> <i>(2024 January - June)</i>",
           "responsibiliites":{
             "1": "Build an MVP that allows home seekers to sign up, manage their search filters (e.g. rental price, number of bedrooms and location) and receive email notification of matching property offers. Building the MVP included: React.js frontend (hosted in S3 bucket), FastAPI backend (hosted in lambda function & made available through API Gateway), Python Scrapy to scrape apartment offers & email notification to send out matches (hosted in EC2 instances), conceptualizing a PostgreSQL database schema (hosted via RDS)."}
         }
       }
     },
     "accenture":{
-      "time":"<i>2022-2024 Sept.-March</i>",
+      "time":"<i>2022-2024 Sept. - March</i>",
       "title":"Custom Software Engineering Associate at Accenture Technology Solutions",
       "experiences": {
         "1": {
@@ -80,8 +77,34 @@
   },
   "education":{
     "title": "Education",
-    "VU": "Bachelor Degree in Computer Science with an average grade of 7.7/10. Minored in 'Deep Programming'. For a complete list of grades, <a class='txt_link' href='documents/grade_list.pdf' target='_blank'>click here.</a>",
-    "markham": "(2015-2017) <a class='txt_link' href='documents/IB_diploma.pdf' target='_blank'>International Baccalaureate Diploma:</a> 35/45.<br> (2014-2015) Cambridge IGCSE"
+    "academic": {
+      "title": "Academic Background",
+      "vu": {
+        "title": "Bachelor of Science in Computer Science from <a href='https://vu.nl/en/education/bachelor/computer-science'>Vrije Universiteit Amsterdam</a>",
+        "time":"<i>2018-2021</i>",
+        "experience": {
+          "1": "Minor in 'Deep Programming'.",
+          "2": "GPA: 7.7/10. For a full list of grades, <a class='txt_link' href='documents/grade_list.pdf' target='_blank'>click here.</a>",
+          "3": "<strong>Bachelor Thesis entitled </strong> ‘Leveraging Multi-modal Information Extraction for Automatic Commonsense Knowledge Base Construction specific to Cooking Recipes’. Read it in full <a class='txt_link' href='documents/bachelor_thesis.pdf' target='_blank'>here</a>.",
+          "4": "Project graded with a 9/10."
+        }
+      },
+      "markham": {
+        "title": "Secondary Education at <a href='https://www.markham.edu.pe/'>Markham College</a>, Lima, Peru",
+        "time":"<i>2014-2017</i>",
+        "experience": {
+          "1": "(2015-2017) <a class='txt_link' href='documents/IB_diploma.pdf' target='_blank'>International Baccalaureate Diploma:</a> 35/45.",
+          "2": "(2014-2015) Cambridge IGCSE"
+        }
+      }
+    },
+    "certified": {
+      "title": "Certificates",
+      "experience": {
+        "1": "<strong><a class='txt_link' href='documents/aws_certified_solutions_architect_associate_certificate.pdf' target='_blank'>AWS Certified Solutions Architect - Associate</a></strong> (February of 2023):<br>Studied all major AWS services, focusing on designing secure, resilient, high-performing and cost-effective architectures.",
+        "2": "</strong><a class='txt_link' href='documents/java_jumpstart_program.pdf' target='_blank'>Software Engineering Java JUMP Start Program Accenture</a></strong> (2022 September - October):<br>1.5 Month long Traineeship where I became studied and practice full stack development by developing an application to schedule horse training lessons (using Java Spring Boot, PostgreSQL & React.js)."
+      }
+    }
   },
   "projects":{
     "title":"University projects worth Mentioning",
