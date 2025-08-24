@@ -236,9 +236,10 @@
   <script type="text/javascript">
 
     document.addEventListener("DOMContentLoaded", function() {
-      debugger;
+
       add_work_experience().then(() => {
         translate_txt(); 
+        document.portfolio_functionality.width_change();
         //change_mode
         if(sessionStorage["current_mode"] == "white"){
           change_mode_display("light");
@@ -250,7 +251,9 @@
           document.getElementById("mode_input").checked = true;
         }
       });
-      
+
+      debugger;
+
       // Game of Life
       document.gol_game_ui = new GameUI();
 
@@ -301,7 +304,7 @@
           }
         }
       }
-    });
 
+    });
   </script>
 </html>

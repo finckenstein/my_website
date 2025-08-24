@@ -20,7 +20,7 @@ class PortfolioFunctionality{
       change_heights_of(placeholders, placeholder_height+"px");
 
       let sections = document.getElementsByClassName("section_info");
-      let section_height = window.innerHeight - document.getElementById("header").clientHeight;
+      let section_height = window.innerHeight - document.getElementById("header").clientHeight * 2;
       change_heights_of(sections, section_height+"px");
 
       let controls_height = document.getElementById("game_controls").clientHeight;
@@ -28,11 +28,15 @@ class PortfolioFunctionality{
       document.getElementById("explanation_wrapper").style.height = wrapper_height+"px";
       document.getElementById("explanation_wrapper").style.top = placeholder_height+"px";
     }
+
     function height_of_game_div(){
-      document.getElementById("game_display_div").style.height = window.innerHeight-(document.getElementById("header").clientHeight+document.getElementById("game_controls").clientHeight)+"px";
+      let header_height = document.getElementById("header").clientHeight;
+      let game_control_height = document.getElementById("game_controls").clientHeight;
+      let not_game_display_height = header_height + game_control_height
+      document.getElementById("game_display_div").style.height = window.innerHeight - (not_game_display_height) + "px";
     }
-    height_of_sections();
     height_of_game_div();
+    height_of_sections();
   }
   #set_background_of_header_to_section(){
     function change_background_of_header_div(section_div){
