@@ -25,7 +25,7 @@
   "work":{
     "title":"Work Experience",
     "self_employed":{
-      "time":"<i>2024-curr. April</i>",
+      "time":"<i>2024 April - current</i>",
       "title":"Consulting on and Implementation of digital processes (Self-Employed)",
       "experiences":{ 
         "1": {
@@ -50,7 +50,7 @@
       }
     },
     "accenture":{
-      "time":"<i>2022-2024 Sept. - March</i>",
+      "time":"<i>2022 September - 2024 March</i>",
       "title":"Custom Software Engineering Associate at Accenture Technology Solutions",
       "experiences": {
         "1": {
@@ -63,7 +63,7 @@
       }
     },
     "vu_teaching_assistant":{
-      "time":"<i>2021 Feb-June</i>",
+      "time":"<i>2021 February - June</i>",
       "title":"Teaching Assistant for the ‘Software Design’ class at VU Amsterdam",
       "experiences": [
         {
@@ -81,7 +81,7 @@
       "title": "Academic Background",
       "vu": {
         "title": "Bachelor of Science in Computer Science from <a href='https://vu.nl/en/education/bachelor/computer-science'>Vrije Universiteit Amsterdam</a>",
-        "time":"<i>2018-2021</i>",
+        "time":"<i>2018 - 2021</i>",
         "experience": {
           "1": "Minor in 'Deep Programming'.",
           "2": "GPA: 7.7/10. For a full list of grades, <a class='txt_link' href='documents/grade_list.pdf' target='_blank'>click here.</a>",
@@ -91,7 +91,7 @@
       },
       "markham": {
         "title": "Secondary Education at <a href='https://www.markham.edu.pe/'>Markham College</a>, Lima, Peru",
-        "time":"<i>2014-2017</i>",
+        "time":"<i>2014 - 2017</i>",
         "experience": {
           "1": "(2015-2017) <a class='txt_link' href='documents/IB_diploma.pdf' target='_blank'>International Baccalaureate Diploma:</a> 35/45.",
           "2": "(2014-2015) Cambridge IGCSE"
