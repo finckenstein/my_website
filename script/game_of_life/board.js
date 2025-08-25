@@ -65,7 +65,10 @@ class GameBoard{
         cell_div.style.width = this.div_dim;
         cell_div.style.height = this.div_dim;
         cell_div.setAttribute("id", x+" "+y);
-
+        
+        cell_div.addEventListener("touchmove", () =>{document.gol_game_ui.register_move(event);});
+        cell_div.addEventListener("mousedown", () => {document.gol_game_ui.set_mouse_down(true);});
+        cell_div.addEventListener("mouseup", () => {document.gol_game_ui.set_mouse_down(false);});
         cell_div.addEventListener("mousemove", () => this.change_background_mouse_down(cell_div));
         cell_div.addEventListener("click", () => this.change_background(cell_div));
 

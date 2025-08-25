@@ -257,9 +257,6 @@
       // Game of Life
       document.gol_game_ui = new GameUI();
 
-      // Touch move on game display
-      document.getElementById("game_display")?.addEventListener("touchmove", () =>{document.gol_game_ui.register_move(event);});
-
       document.getElementById("game_controls").style.width= (100-((document.getElementById("my_projects").offsetWidth - document.getElementById("my_projects").clientWidth)/100))+"%";
 
       document.getElementById("start_game")?.addEventListener("click", () => {document.gol_game_ui.start_game();});
@@ -269,12 +266,8 @@
       document.getElementById("erase_cells")?.addEventListener("mousedown", () => {document.gol_game_ui.move_to_change(false);});
       document.getElementById("t_gol")?.addEventListener("click", () => {document.gol_game_ui.open_up_gol_info();});
       document.getElementById("game_explanation_div")?.addEventListener("click", () => {document.gol_game_ui.show_game_explanation();});
-      document.getElementById("hide_game_explanation")?.addEventListener("click", () => {document.gol_game_ui.hide_game_explanation();});
-
-      document.getElementById("game_display")?.addEventListener("mousedown", () => {document.gol_game_ui.set_mouse_down(true);});
-      document.getElementById("game_display")?.addEventListener("mouseup", () => {document.gol_game_ui.set_mouse_down(false);});
+      document.getElementById("hide_game_explanation")?.addEventListener("click", () => {document.gol_game_ui.hide_game_explanation();})
       
-
       document.getElementById("show_intreval_time").textContent = ((document.getElementById("intreval_time").value)/1000)+" sec";
       document.getElementById("intreval_time").onmouseup = ()=>{document.gol_game_ui.change_display_of_range();};
       document.getElementById("intreval_time").ontouchend = ()=>{document.gol_game_ui.change_display_of_range();};
