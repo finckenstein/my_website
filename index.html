@@ -252,34 +252,13 @@
   <script type="text/javascript">
 
     document.addEventListener("DOMContentLoaded", function() {
-
-      add_html_txt_elements_to_sections().then(() => {
-        translate_txt(); 
-
-        // needed to properly display the height of the sections, after the text has been loaded.
-        document.portfolio_functionality.width_change();
-        
-        //change_mode
-        if(sessionStorage["current_mode"] == "white"){
-          change_mode_display("light");
-          change_color_of_page("black", sessionStorage["current_mode"]);
-        }
-        else{
-          change_mode_display("dark");
-          change_color_of_page("white", sessionStorage["current_mode"]);
-          document.getElementById("mode_input").checked = true;
-        }
-      });
-
       debugger;
 
       // Game of Life
       document.gol_game_ui = new GameUI();
 
       // Touch move on game display
-      document.getElementById("game_display")?.addEventListener("touchmove", () =>{
-        document.gol_game_ui.register_move(event);
-      });
+      document.getElementById("game_display")?.addEventListener("touchmove", () =>{document.gol_game_ui.register_move(event);});
 
       document.getElementById("game_controls").style.width= (100-((document.getElementById("my_projects").offsetWidth - document.getElementById("my_projects").clientWidth)/100))+"%";
 
@@ -324,6 +303,23 @@
         }
       }
 
+      add_html_txt_elements_to_sections().then(() => {
+        translate_txt(); 
+
+        // needed to properly display the height of the sections, after the text has been loaded.
+        document.portfolio_functionality.width_change();
+        
+        //change_mode
+        if(sessionStorage["current_mode"] == "white"){
+          change_mode_display("light");
+          change_color_of_page("black", sessionStorage["current_mode"]);
+        }
+        else{
+          change_mode_display("dark");
+          change_color_of_page("white", sessionStorage["current_mode"]);
+          document.getElementById("mode_input").checked = true;
+        }
+      });
     });
   </script>
 </html>
